@@ -8,7 +8,7 @@ function Resume() {
                 <h2>Resume</h2>
             </div>
             <div className="Resume">
-                <iframe src="public\aemCV.pdf"></iframe>
+            <iframe src="/aemCV.pdf"></iframe>
             </div>
         </section>
     );
