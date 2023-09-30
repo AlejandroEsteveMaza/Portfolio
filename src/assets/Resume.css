@@ -1,0 +1,94 @@
+.Resume {
+    width: 100%;
+    /* Ancho completo de la página */
+    height: 100vh;
+    /* Alto completo de la ventana gráfica */
+    position: relative;
+    /* Para posicionar el iframe dentro del contenedor */
+    overflow: hidden;
+    /* Para ocultar el desbordamiento del iframe si es necesario */
+
+    border-radius: 1rem;
+}
+
+
+
+/* Estilo para el iframe */
+iframe {
+    width: 100%;
+    /* Ancho completo del contenedor */
+    height: 100%;
+    /* Alto completo del contenedor */
+    border: none;
+    /* Elimina el borde del iframe */
+    position: absolute;
+    /* Permite posicionar el iframe en el contenedor */
+    top: 0;
+    /* Alinea la parte superior del iframe con la parte superior del contenedor */
+    left: 0;
+    /* Alinea la parte izquierda del iframe con la parte izquierda del contenedor */
+}
+
+.Resume-container {
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6.5rem 21rem 6.5rem 21rem;
+}
+
+.Resume-title {
+    margin: 0 0 3rem 0;
+}
+
+.Resume-title h2 {
+    font-size: 1.7rem;
+    padding: 0 0 0.3rem 0;
+    margin: 0;
+    border-bottom: 3px solid var(--purple);
+    color: var(--purple);
+}
+
+/* Modificaciones para resoluciones específicas */
+@media screen and (max-width: 1453px) {
+    .Resume {
+      margin: 0 auto; /* Centra el contenedor horizontalmente */
+    }
+    .Resume-container {
+      padding: 6.5rem 11rem;
+    }
+  }
+  
+  @media screen and (max-width: 1139px) {
+    .Resume {
+      margin: 0 auto; /* Centra el contenedor horizontalmente */
+    }
+    .Resume-container {
+      padding: 6.5rem 4.5rem;
+    }
+  }
+  
+  @media screen and (max-width: 710px) {
+    .Resume {
+      margin: 0 auto; /* Centra el contenedor horizontalmente */
+    }
+    .Resume-container {
+      padding: 6.5rem 1.5rem;
+    }
+  }
+  
+  @media screen and (max-width: 523px) {
+    .Resume {
+      margin: 0 auto; /* Centra el contenedor horizontalmente */
+    }
+    .Resume-title h2 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media screen and (max-width: 438px) {
+    .Resume {
+      margin: 0 auto; /* Centra el contenedor horizontalmente */
+    }
+  }
