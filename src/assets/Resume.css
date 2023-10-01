@@ -1,33 +1,21 @@
 .Resume {
     width: 100%;
-    /* Ancho completo de la página */
     height: 100vh;
-    /* Alto completo de la ventana gráfica */
     position: relative;
-    /* Para posicionar el iframe dentro del contenedor */
     overflow: hidden;
-    /* Para ocultar el desbordamiento del iframe si es necesario */
-
     border-radius: 1rem;
+    margin: 0 0 3rem 0;
 }
 
-
-
-/* Estilo para el iframe */
 iframe {
     width: 100%;
-    /* Ancho completo del contenedor */
     height: 100%;
-    /* Alto completo del contenedor */
     border: none;
-    /* Elimina el borde del iframe */
     position: absolute;
-    /* Permite posicionar el iframe en el contenedor */
     top: 0;
-    /* Alinea la parte superior del iframe con la parte superior del contenedor */
     left: 0;
-    /* Alinea la parte izquierda del iframe con la parte izquierda del contenedor */
 }
+
 
 .Resume-container {
     background-color: rgb(247, 247, 247);
@@ -48,6 +36,21 @@ iframe {
     margin: 0;
     border-bottom: 3px solid var(--purple);
     color: var(--purple);
+}
+
+.btn-download {
+  background-color: var(--purple);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.btn-download:hover {
+  background-color: #fff;
+  color: var(--purple);
 }
 
 /* Modificaciones para resoluciones específicas */
