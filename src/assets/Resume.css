@@ -53,10 +53,9 @@ iframe {
   color: var(--purple);
 }
 
-/* Modificaciones para resoluciones específicas */
 @media screen and (max-width: 1453px) {
     .Resume {
-      margin: 0 auto; /* Centra el contenedor horizontalmente */
+      height: 90vh;
     }
     .Resume-container {
       padding: 6.5rem 11rem;
@@ -65,7 +64,7 @@ iframe {
   
   @media screen and (max-width: 1139px) {
     .Resume {
-      margin: 0 auto; /* Centra el contenedor horizontalmente */
+      height: 80vh;
     }
     .Resume-container {
       padding: 6.5rem 4.5rem;
@@ -74,7 +73,7 @@ iframe {
   
   @media screen and (max-width: 710px) {
     .Resume {
-      margin: 0 auto; /* Centra el contenedor horizontalmente */
+      height: 50vh;
     }
     .Resume-container {
       padding: 6.5rem 1.5rem;
@@ -83,7 +82,7 @@ iframe {
   
   @media screen and (max-width: 523px) {
     .Resume {
-      margin: 0 auto; /* Centra el contenedor horizontalmente */
+      height: 40vh;
     }
     .Resume-title h2 {
       font-size: 1.3rem;
@@ -91,7 +90,7 @@ iframe {
   }
   
   @media screen and (max-width: 438px) {
-    .Resume {
-      margin: 0 auto; /* Centra el contenedor horizontalmente */
+    .Resume { 
+      height: 40vh;
     }
   }
