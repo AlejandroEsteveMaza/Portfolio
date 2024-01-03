@@ -12,12 +12,6 @@ function Contact() {
       </h3>
       <div className="Contact-card">
         <div className="Contact-link">
-          <a href="tel:+34605628264" target="_blank" rel="noreferrer">
-            <i className="bx bx-md bxs-phone"></i>
-          </a>
-          <p>+34 605628264</p>
-        </div>
-        <div className="Contact-link">
           <a
             href="mailto: alex.esteve98@gmail.com"
             target="_blank"

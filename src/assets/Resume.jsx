@@ -13,7 +13,7 @@ function Resume() {
                 <h2>Resume</h2>
             </div>
             <div className="Resume">
-                <iframe src="https://drive.google.com/file/d/1lxr8vhXFYf2bj8gVBm8iNPVfZUmP-389/preview"></iframe>
+                <iframe src="https://drive.google.com/file/d/1TNmlqYql13guORa9xN_zHIcp-cxn_wz6/preview"></iframe>
             </div>
             <button  className="btn-download" onClick={downloadResume}>Download PDF</button>
         </section>
