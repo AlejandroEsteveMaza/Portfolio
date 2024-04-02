@@ -47,7 +47,6 @@ function Intro() {
           <div className="skill-d"></div>
           <div className="skill-e"></div>
           <div className="skill-f"></div>
-          <div className="skill-g"></div>
           <div className="skill-h"></div>
         </div>
       </div>
