@@ -67,8 +67,8 @@ h1 {
   height: 20rem;
   background: url("../../public/images/yo.jpg");
   background-repeat: no-repeat;
-  background-size: 250%;
-  background-position-x: 47%;
+  background-size: 123%;
+  background-position-x: 75%;
   background-position-y: 45%;
   border-radius: 7rem;
   border: 3px solid var(--black);
