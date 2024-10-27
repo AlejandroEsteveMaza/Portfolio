@@ -2,9 +2,12 @@ import "./Resume.css";
 import React from 'react';
 
 function Resume() {
-    const pdfUrl = '/AlejandroEsteveMazaCV.pdf';
+    const googleDriveFileId = '1-UgD2m9eA2p_2DKPrLU0bMTvUQfMAHST';
+    const googleDrivePreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
+    const googleDriveDownloadUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
+
     const downloadResume = () => {
-        window.open(pdfUrl, '_blank');
+        window.open(googleDriveDownloadUrl, '_blank');
     };
 
     return (
@@ -13,9 +16,9 @@ function Resume() {
                 <h2>Resume</h2>
             </div>
             <div className="Resume">
-                <iframe src="https://drive.google.com/file/d/1-UgD2m9eA2p_2DKPrLU0bMTvUQfMAHST/preview"></iframe>
+                <iframe src={googleDrivePreviewUrl}></iframe>
             </div>
-            <button  className="btn-download" onClick={downloadResume}>Download PDF</button>
+            <button className="btn-download" onClick={downloadResume}>Download PDF</button>
         </section>
     );
 }
