@@ -28,7 +28,7 @@
 }
 
 .About-image {
-  background: url("../../public/images/yoo.jpg");
+  background: url("/images/yoo.jpg");
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
