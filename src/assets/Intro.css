@@ -65,7 +65,7 @@ h1 {
 .intro-img {
   width: 20rem;
   height: 20rem;
-  background: url("../../public/images/yo.jpg");
+  background: url("/images/yo.jpg");
   background-repeat: no-repeat;
   background-size: 123%;
   background-position-x: 75%;
@@ -100,11 +100,10 @@ h1 {
   width: 37rem;
 }
 
-
 .skill-a {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/spring.svg");
+  background: url("/images/spring.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -112,7 +111,7 @@ h1 {
 .skill-b {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/java.svg");
+  background: url("/images/java.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -120,36 +119,31 @@ h1 {
 .skill-c {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/aws.svg");
+  background: url("/images/aws.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 
 .skill-d {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/js.png");
+  background: url("/images/js.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-
 
 .skill-e {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/react.png");
+  background: url("/images/react.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-
-
 .skill-f {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/git.png");
+  background: url("/images/git.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -157,7 +151,7 @@ h1 {
 .skill-g {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/mysql.svg");
+  background: url("/images/mysql.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -165,7 +159,7 @@ h1 {
 .skill-h {
   width: 2.5rem;
   height: 2.5rem;
-  background: url("../../public/images/postgresql.svg");
+  background: url("/images/postgresql.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
