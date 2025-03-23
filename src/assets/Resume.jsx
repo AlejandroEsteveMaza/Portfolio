@@ -2,7 +2,7 @@ import "./Resume.css";
 import React from 'react';
 
 function Resume() {
-    const googleDriveFileId = '1hUeIRBG0AufgZCIYzojmGRf65RPkpQPy';
+    const googleDriveFileId = '1IurDW4tSqNSTeM-J0Xy9jEGdrHIH8KpB';
     const googleDrivePreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
     const googleDriveDownloadUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
 
