@@ -1,0 +1,44 @@
+---
+import "../styles/header.css";
+
+const { lang, copy } = Astro.props;
+const basePath = lang === "en" ? "/en/" : "/";
+const menuId = "mobile-menu";
+---
+<header class="header">
+  <nav class="nav">
+    <a class="nav-logo" href={basePath}>AEM</a>
+    <ul class="nav-ul">
+      <li><a href="#home">{copy.nav.home}</a></li>
+      <li><a href="#about">{copy.nav.about}</a></li>
+      <li><a href="#projects">{copy.nav.projects}</a></li>
+      <li><a href="#resume">{copy.nav.resume}</a></li>
+      <li><a href="#contact">{copy.nav.contact}</a></li>
+    </ul>
+    <div class="lang-toggle" aria-label="Language">
+      <a href="/" class={lang === "es" ? "lang-active" : ""} aria-current={lang === "es" ? "page" : undefined}>
+        ES
+      </a>
+      <a href="/en/" class={lang === "en" ? "lang-active" : ""} aria-current={lang === "en" ? "page" : undefined}>
+        EN
+      </a>
+    </div>
+    <a class="hamburger" href={`#${menuId}`} aria-label="Open navigation">
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
+    </a>
+  </nav>
+  <nav id={menuId} class="mobile-nav" aria-label="Mobile navigation">
+    <a class="mobile-close" href={basePath} aria-label="Close navigation">✕</a>
+    <a href="#home">{copy.nav.home}</a>
+    <a href="#about">{copy.nav.about}</a>
+    <a href="#projects">{copy.nav.projects}</a>
+    <a href="#resume">{copy.nav.resume}</a>
+    <a href="#contact">{copy.nav.contact}</a>
+    <div class="lang-toggle mobile">
+      <a href="/" class={lang === "es" ? "lang-active" : ""}>ES</a>
+      <a href="/en/" class={lang === "en" ? "lang-active" : ""}>EN</a>
+    </div>
+  </nav>
+</header>

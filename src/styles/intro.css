@@ -14,7 +14,7 @@
   justify-content: space-between;
 }
 
-h1 {
+.intro-title h1 {
   font-size: 3.7rem;
   margin: 0;
   letter-spacing: 2px;
@@ -35,9 +35,10 @@ h1 {
   width: 25rem;
 }
 
-.intro-p span {
+.intro-cta {
+  margin: 0 0 2rem 0;
+  font-weight: 600;
   color: var(--purple);
-  font-weight: bold;
 }
 
 .intro-ul {
@@ -65,13 +66,10 @@ h1 {
 .intro-img {
   width: 20rem;
   height: 20rem;
-  background: url("/images/yo.jpg");
-  background-repeat: no-repeat;
-  background-size: 123%;
-  background-position-x: 75%;
-  background-position-y: 45%;
   border-radius: 7rem;
   border: 3px solid var(--black);
+  object-fit: cover;
+  object-position: 75% 45%;
 }
 
 .intro-skills {
@@ -171,7 +169,7 @@ h1 {
   .intro-section {
     padding: 10.5rem 6rem 6rem 6rem;
   }
-  h1 {
+  .intro-title h1 {
     font-size: 3rem;
   }
   .intro-p {
@@ -179,7 +177,6 @@ h1 {
     width: 20rem;
   }
 }
-
 
 @media only screen and (max-width: 1139px) {
   .intro-section {
@@ -194,8 +191,9 @@ h1 {
   .intro-img {
     margin-bottom: 1.5rem;
   }
-  h1,
-  .intro-p {
+  .intro-title h1,
+  .intro-p,
+  .intro-cta {
     text-align: center;
   }
   .intro-p {
@@ -227,7 +225,7 @@ h1 {
     align-items: center;
     justify-content: center;
   }
-  h1 {
+  .intro-title h1 {
     font-size: 2.3rem;
   }
   .intro-p {
@@ -255,4 +253,3 @@ h1 {
     height: 1.5rem;
   }
 }
-

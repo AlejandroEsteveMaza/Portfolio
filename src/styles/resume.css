@@ -1,0 +1,96 @@
+.Resume {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin: 0 0 3rem 0;
+}
+
+.Resume iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Resume-container {
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6.5rem 21rem 6.5rem 21rem;
+}
+
+.Resume-title {
+  margin: 0 0 3rem 0;
+}
+
+.Resume-title h2 {
+  font-size: 1.7rem;
+  padding: 0 0 0.3rem 0;
+  margin: 0;
+  border-bottom: 3px solid var(--purple);
+  color: var(--purple);
+}
+
+.btn-download {
+  background-color: var(--purple);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.btn-download:hover {
+  background-color: #fff;
+  color: var(--purple);
+}
+
+@media screen and (max-width: 1453px) {
+  .Resume {
+    height: 90vh;
+  }
+  .Resume-container {
+    padding: 6.5rem 11rem;
+  }
+}
+
+@media screen and (max-width: 1139px) {
+  .Resume {
+    height: 80vh;
+  }
+  .Resume-container {
+    padding: 6.5rem 4.5rem;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .Resume {
+    height: 50vh;
+  }
+  .Resume-container {
+    padding: 6.5rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 523px) {
+  .Resume {
+    height: 40vh;
+  }
+  .Resume-title h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 438px) {
+  .Resume {
+    height: 40vh;
+  }
+}

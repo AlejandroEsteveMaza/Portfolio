@@ -1,0 +1,28 @@
+:root {
+  --purple: rgb(84, 37, 179);
+  --blue: rgb(17, 37, 218);
+  --black: rgb(37, 37, 37);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--black);
+  width: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+main {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+}
