@@ -11,7 +11,7 @@ const menuId = "mobile-menu";
     <ul class="nav-ul">
       <li><a href="#home">{copy.nav.home}</a></li>
       <li><a href="#about">{copy.nav.about}</a></li>
-      <li><a href="#projects">{copy.nav.projects}</a></li>
+      {copy.showProjects && <li><a href="#projects">{copy.nav.projects}</a></li>}
       <li><a href="#resume">{copy.nav.resume}</a></li>
       <li><a href="#contact">{copy.nav.contact}</a></li>
     </ul>
@@ -33,7 +33,7 @@ const menuId = "mobile-menu";
     <a class="mobile-close" href={basePath} aria-label="Close navigation">✕</a>
     <a href="#home">{copy.nav.home}</a>
     <a href="#about">{copy.nav.about}</a>
-    <a href="#projects">{copy.nav.projects}</a>
+    {copy.showProjects && <a href="#projects">{copy.nav.projects}</a>}
     <a href="#resume">{copy.nav.resume}</a>
     <a href="#contact">{copy.nav.contact}</a>
     <div class="lang-toggle mobile">
