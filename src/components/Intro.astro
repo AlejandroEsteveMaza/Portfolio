@@ -1,12 +1,12 @@
 ---
 import "../styles/intro.css";
-import { SparklesCore } from "./ui/sparkles";
+import { MagneticParticles } from "./ui/magnetic-particles";
 
 const { copy } = Astro.props;
 ---
 <section id="home" class="intro-section">
-  <div class="intro-sparkles" aria-hidden="true">
-    <SparklesCore client:load className="intro-sparkles-canvas" />
+  <div class="intro-particles" aria-hidden="true">
+    <MagneticParticles client:load className="intro-particles-canvas" />
   </div>
   <div class="intro-top">
     <div class="intro-title">
