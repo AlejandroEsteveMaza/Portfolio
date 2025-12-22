@@ -1,9 +1,13 @@
 ---
 import "../styles/intro.css";
+import { SparklesCore } from "./ui/sparkles";
 
 const { copy } = Astro.props;
 ---
 <section id="home" class="intro-section">
+  <div class="intro-sparkles" aria-hidden="true">
+    <SparklesCore client:load className="intro-sparkles-canvas" />
+  </div>
   <div class="intro-top">
     <div class="intro-title">
       <h1>{copy.intro.title}</h1>

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --purple: rgb(84, 37, 179);
   --blue: rgb(17, 37, 218);

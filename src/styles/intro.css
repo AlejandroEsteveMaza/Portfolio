@@ -7,11 +7,63 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: rgb(247, 247, 247);
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.intro-sparkles-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sparkles-particle {
+  display: block;
+  position: absolute;
+  border-radius: 9999px;
+  background-color: currentColor;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+  animation-name: sparkle-float;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+}
+
+.intro-sparkles-canvas[data-reduced="true"] .sparkles-particle {
+  animation: none;
+  opacity: 0.18;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+@keyframes sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+  }
+  45% {
+    opacity: 0.32;
+    transform: translate(-50%, -50%) scale(1) rotate(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) rotate(180deg);
+  }
 }
 
 .intro-top {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 .intro-title h1 {
@@ -78,6 +130,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .intro-skills h3 {
