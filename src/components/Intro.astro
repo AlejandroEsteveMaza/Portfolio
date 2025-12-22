@@ -1,0 +1,55 @@
+---
+import "../styles/intro.css";
+import { MagneticParticles } from "./ui/magnetic-particles";
+import { SkillsMarquee } from "./ui/skills-marquee";
+
+const { copy } = Astro.props;
+---
+<section id="home" class="intro-section">
+  <div class="intro-particles" aria-hidden="true">
+    <MagneticParticles client:load className="intro-particles-canvas" />
+  </div>
+  <div class="intro-top">
+    <div class="intro-title">
+      <h1>{copy.intro.title}</h1>
+      <p class="intro-p" set:html={copy.intro.subtitle}></p>
+      <p class="intro-cta">{copy.intro.cta}</p>
+      <ul class="intro-ul">
+        <li>
+          <a
+            class="intro-links"
+            href="https://www.linkedin.com/in/alejandro-esteve-maza/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="LinkedIn"
+          >
+            <i class="bx bx-md bxl-linkedin-square"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            class="intro-links"
+            href="https://github.com/AlejandroEsteveMaza"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="GitHub"
+          >
+            <i class="bx bx-md bxl-github"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <img
+      class="intro-img"
+      src="/images/yo.jpg"
+      alt="Portrait of Alejandro Esteve Maza"
+      loading="lazy"
+    />
+  </div>
+  <div class="intro-skills">
+    <div>
+      <h3>{copy.intro.skillsTitle}</h3>
+    </div>
+    <SkillsMarquee />
+  </div>
+</section>

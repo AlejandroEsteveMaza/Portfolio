@@ -1,0 +1,24 @@
+---
+import "../styles/resume.css";
+
+const { copy } = Astro.props;
+const googleDriveFileId = "1IurDW4tSqNSTeM-J0Xy9jEGdrHIH8KpB";
+const googleDrivePreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
+const googleDriveDownloadUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
+---
+<section id="resume" class="Resume-container">
+  <div class="Resume-title">
+    <h2>{copy.resume.title}</h2>
+  </div>
+  <div class="Resume">
+    <iframe src={googleDrivePreviewUrl} title={copy.resume.previewTitle} loading="lazy"></iframe>
+  </div>
+  <a
+    class="btn-download"
+    href={googleDriveDownloadUrl}
+    target="_blank"
+    rel="noreferrer noopener"
+  >
+    {copy.resume.download}
+  </a>
+</section>

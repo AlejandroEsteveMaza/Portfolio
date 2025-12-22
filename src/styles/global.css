@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple: rgb(84, 37, 179);
+  --blue: rgb(17, 37, 218);
+  --text: rgb(37, 37, 37);
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: rgb(247, 247, 247);
+  --surface-soft: rgb(237, 237, 237);
+  --border: rgba(146, 161, 176, 0.15);
+  --header-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+  --footer-start: rgb(37, 37, 37);
+  color-scheme: light;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  --text: rgb(231, 234, 240);
+  --background: #0f1115;
+  --surface: #151a22;
+  --surface-muted: #11151d;
+  --surface-soft: #171c25;
+  --border: rgba(255, 255, 255, 0.08);
+  --header-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  --footer-start: #0b0d12;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  width: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  background-color: var(--background);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+main {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+@keyframes skills-marquee {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.skills-marquee-track {
+  animation: skills-marquee var(--skills-marquee-duration, 32s) linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-marquee-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}

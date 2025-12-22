@@ -1,0 +1,144 @@
+---
+import "../styles/header.css";
+
+const { lang, copy } = Astro.props;
+const basePath = lang === "en" ? "/en/" : "/";
+const menuId = "mobile-menu";
+---
+<header class="header">
+  <nav class="nav">
+    <a class="nav-logo" href={basePath}>AEM</a>
+    <ul class="nav-ul">
+      <li><a href="#home">{copy.nav.home}</a></li>
+      <li><a href="#about">{copy.nav.about}</a></li>
+      {copy.showProjects && <li><a href="#projects">{copy.nav.projects}</a></li>}
+      <li><a href="#resume">{copy.nav.resume}</a></li>
+      <li><a href="#contact">{copy.nav.contact}</a></li>
+    </ul>
+    <div class="nav-controls desktop" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
+      <div class="lang-toggle" aria-label="Language">
+        <a href="/" class={lang === "es" ? "lang-active" : ""} aria-current={lang === "es" ? "page" : undefined}>
+          ES
+        </a>
+        <a href="/en/" class={lang === "en" ? "lang-active" : ""} aria-current={lang === "en" ? "page" : undefined}>
+          EN
+        </a>
+      </div>
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        data-label-light={lang === "es" ? "Activar modo claro" : "Switch to light mode"}
+        data-label-dark={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
+        aria-label={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
+        aria-pressed="false"
+      >
+        <span class="theme-icon icon-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="12" y1="2" x2="12" y2="5"></line>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+            <line x1="2" y1="12" x2="5" y2="12"></line>
+            <line x1="19" y1="12" x2="22" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+        <span class="theme-icon icon-moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"></path>
+          </svg>
+        </span>
+      </button>
+    </div>
+    <a class="hamburger" href={`#${menuId}`} aria-label="Open navigation">
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
+    </a>
+  </nav>
+  <nav id={menuId} class="mobile-nav" aria-label="Mobile navigation">
+    <a class="mobile-close" href={basePath} aria-label="Close navigation">✕</a>
+    <a href="#home">{copy.nav.home}</a>
+    <a href="#about">{copy.nav.about}</a>
+    {copy.showProjects && <a href="#projects">{copy.nav.projects}</a>}
+    <a href="#resume">{copy.nav.resume}</a>
+    <a href="#contact">{copy.nav.contact}</a>
+    <div class="nav-controls mobile" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
+      <div class="lang-toggle mobile" aria-label="Language">
+        <a href="/" class={lang === "es" ? "lang-active" : ""} aria-current={lang === "es" ? "page" : undefined}>
+          ES
+        </a>
+        <a href="/en/" class={lang === "en" ? "lang-active" : ""} aria-current={lang === "en" ? "page" : undefined}>
+          EN
+        </a>
+      </div>
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        data-label-light={lang === "es" ? "Activar modo claro" : "Switch to light mode"}
+        data-label-dark={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
+        aria-label={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
+        aria-pressed="false"
+      >
+        <span class="theme-icon icon-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="12" y1="2" x2="12" y2="5"></line>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+            <line x1="2" y1="12" x2="5" y2="12"></line>
+            <line x1="19" y1="12" x2="22" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+        <span class="theme-icon icon-moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"></path>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </nav>
+  <script is:inline>
+    (() => {
+      const root = document.documentElement;
+      const storageKey = "theme";
+      const buttons = document.querySelectorAll("[data-theme-toggle]");
+
+      const updateButtons = (theme) => {
+        const isDark = theme === "dark";
+        buttons.forEach((button) => {
+          const nextLabel = isDark
+            ? button.dataset.labelLight
+            : button.dataset.labelDark;
+          if (nextLabel) {
+            button.setAttribute("aria-label", nextLabel);
+          }
+          button.setAttribute("aria-pressed", String(isDark));
+        });
+      };
+
+      const setTheme = (theme) => {
+        root.classList.remove("light", "dark");
+        root.classList.add(theme);
+        localStorage.setItem(storageKey, theme);
+        updateButtons(theme);
+      };
+
+      updateButtons(root.classList.contains("dark") ? "dark" : "light");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const nextTheme = root.classList.contains("dark") ? "light" : "dark";
+          setTheme(nextTheme);
+        });
+      });
+    })();
+  </script>
+</header>

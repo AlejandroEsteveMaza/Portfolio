@@ -1,0 +1,22 @@
+---
+import "../styles/about.css";
+
+const { copy } = Astro.props;
+---
+<section id="about" class="About-container">
+  <div class="About-title">
+    <h2>{copy.about.title}</h2>
+  </div>
+  <div class="About-container-2">
+    <div class="About-text">
+      <img
+        class="About-image"
+        src="/images/yoo.jpg"
+        alt="Alejandro Esteve Maza portrait"
+        loading="lazy"
+      />
+      <h3>{copy.about.headline}</h3>
+      <p set:html={copy.about.body}></p>
+    </div>
+  </div>
+</section>

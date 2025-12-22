@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Intro from "../components/Intro.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Resume from "../components/Resume.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import { content } from "../content/site";
+
+const lang = "es";
+const copy = content[lang];
+const baseUrl = "https://alejandro-esteve.com";
+const url = `${baseUrl}/`;
+const image = `${baseUrl}/images/yo.jpg`;
+const locale = "es_ES";
+const alternateLocale = "en_US";
+const alternateUrl = `${baseUrl}/en/`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${baseUrl}/#person`,
+      name: "Alejandro Esteve Maza",
+      jobTitle: copy.meta.jobTitle,
+      url: baseUrl,
+      image,
+      sameAs: [
+        "https://www.linkedin.com/in/alejandro-esteve-maza/",
+        "https://github.com/AlejandroEsteveMaza"
+      ],
+      knowsAbout: ["React", "Java", "Spring", "AWS", "PostgreSQL", "MySQL"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${baseUrl}/#website`,
+      url: baseUrl,
+      name: copy.meta.title,
+      description: copy.meta.description,
+      inLanguage: ["es", "en"],
+      publisher: { "@id": `${baseUrl}/#person` }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: copy.meta.title,
+      description: copy.meta.description,
+      inLanguage: lang,
+      isPartOf: { "@id": `${baseUrl}/#website` },
+      about: { "@id": `${baseUrl}/#person` }
+    },
+    ...copy.projects.items.map((project, index) => ({
+      "@type": "CreativeWork",
+      "@id": `${url}#project-${index + 1}`,
+      name: project.title,
+      description: project.description,
+      url: `${url}#projects`,
+      inLanguage: lang,
+      creator: { "@id": `${baseUrl}/#person` }
+    }))
+  ]
+};
+---
+<BaseLayout
+  title={copy.meta.title}
+  description={copy.meta.description}
+  lang={lang}
+  url={url}
+  image={image}
+  jsonLd={jsonLd}
+  locale={locale}
+  alternateLocale={alternateLocale}
+  alternateUrl={alternateUrl}
+>
+  <Header lang={lang} copy={copy} />
+  <main>
+    <Intro copy={copy} />
+    <About copy={copy} />
+    {copy.showProjects && <Projects copy={copy} />}
+    <Resume copy={copy} />
+    <Contact copy={copy} />
+  </main>
+  <Footer copy={copy} />
+</BaseLayout>

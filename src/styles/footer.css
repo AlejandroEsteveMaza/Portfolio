@@ -1,0 +1,33 @@
+.Footer {
+  height: 6.5rem;
+  width: 100%;
+  background: linear-gradient(to right, var(--footer-start), var(--purple));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 300ms ease;
+}
+
+.Footer p {
+  margin: 0;
+  color: white;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 750px) {
+  .Footer {
+    height: 5.5rem;
+  }
+  .Footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .Footer {
+    height: 4.5rem;
+  }
+  .Footer p {
+    font-size: 0.6rem;
+  }
+}
