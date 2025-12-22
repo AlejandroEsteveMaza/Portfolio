@@ -1,10 +1,11 @@
 .Proyects-container {
-  background-color: rgb(247, 247, 247);
+  background-color: var(--surface-muted);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 6.5rem 21rem 6.5rem 21rem;
+  transition: background-color 300ms ease;
 }
 
 .Proyects-title {
@@ -32,10 +33,11 @@
   display: flex;
   justify-content: space-between;
   height: fit-content;
-  background-color: white;
+  background-color: var(--surface);
   border-radius: 2rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: background-color 300ms ease;
 }
 
 .proyect-skills {
@@ -124,8 +126,8 @@
 }
 
 .bx-globe {
-  color: var(--black);
-  transition: color 0.1s ease;
+  color: var(--text);
+  transition: color 300ms ease;
 }
 
 .bx-globe:hover {

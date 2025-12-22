@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 ---
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,6 +24,25 @@ const {
     <meta name="theme-color" content="#5425b3" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const storedTheme = localStorage.getItem("theme");
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme =
+          storedTheme === "dark" || storedTheme === "light"
+            ? storedTheme
+            : prefersDark
+              ? "dark"
+              : "light";
+
+        root.classList.remove("light", "dark");
+        root.classList.add(theme);
+      })();
+    </script>
 
     <link rel="canonical" href={url} />
     <link rel="alternate" href={alternateUrl} hreflang={alternateLocale} />

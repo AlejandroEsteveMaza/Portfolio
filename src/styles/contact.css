@@ -7,7 +7,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(237, 237, 237);
+  background-color: var(--surface-soft);
+  transition: background-color 300ms ease;
 }
 
 .Contact-title {
@@ -20,7 +21,7 @@
 }
 
 .Contact-card {
-  background-color: white;
+  background-color: var(--surface);
   border-radius: 2rem;
   box-sizing: border-box;
   padding: 2rem 6rem;
@@ -30,6 +31,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: background-color 300ms ease;
 }
 
 .Contact-subtitle {
@@ -52,7 +54,8 @@
 .bxs-phone,
 .bxs-envelope,
 .bxl-linkedin-square {
-  color: var(--black);
+  color: var(--text);
+  transition: color 300ms ease;
 }
 
 .bxs-phone:hover,

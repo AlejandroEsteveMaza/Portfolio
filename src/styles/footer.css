@@ -1,10 +1,11 @@
 .Footer {
   height: 6.5rem;
   width: 100%;
-  background: linear-gradient(to right, var(--black), var(--purple));
+  background: linear-gradient(to right, var(--footer-start), var(--purple));
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 300ms ease;
 }
 
 .Footer p {

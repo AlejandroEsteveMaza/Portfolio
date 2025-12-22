@@ -1,11 +1,12 @@
 .About-container {
   box-sizing: border-box;
   padding: 6.5rem 11rem 6.5rem 11rem;
-  background-color: rgb(237, 237, 237);
+  background-color: var(--surface-soft);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 300ms ease;
 }
 
 .About-container-2 {
@@ -43,7 +44,7 @@
 .About-text {
   box-sizing: border-box;
   width: 60%;
-  background-color: white;
+  background-color: var(--surface);
   padding: 2rem;
   border-radius: 2rem;
   display: flex;
@@ -53,6 +54,7 @@
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
   position: relative;
+  transition: background-color 300ms ease;
 }
 
 .About-text p {
