@@ -1,6 +1,7 @@
 ---
 import "../styles/intro.css";
 import { MagneticParticles } from "./ui/magnetic-particles";
+import { SkillsMarquee } from "./ui/skills-marquee";
 
 const { copy } = Astro.props;
 ---
@@ -11,7 +12,7 @@ const { copy } = Astro.props;
   <div class="intro-top">
     <div class="intro-title">
       <h1>{copy.intro.title}</h1>
-      <p class="intro-p">{copy.intro.subtitle}</p>
+      <p class="intro-p" set:html={copy.intro.subtitle}></p>
       <p class="intro-cta">{copy.intro.cta}</p>
       <ul class="intro-ul">
         <li>
@@ -49,14 +50,6 @@ const { copy } = Astro.props;
     <div>
       <h3>{copy.intro.skillsTitle}</h3>
     </div>
-    <div class="skills">
-      <div class="skill-a"></div>
-      <div class="skill-b"></div>
-      <div class="skill-c"></div>
-      <div class="skill-d"></div>
-      <div class="skill-e"></div>
-      <div class="skill-f"></div>
-      <div class="skill-h"></div>
-    </div>
+    <SkillsMarquee />
   </div>
 </section>

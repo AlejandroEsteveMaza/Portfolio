@@ -53,6 +53,10 @@
   width: 25rem;
 }
 
+.intro-p strong {
+  color: var(--purple);
+}
+
 .intro-cta {
   margin: 0 0 2rem 0;
   font-weight: 600;

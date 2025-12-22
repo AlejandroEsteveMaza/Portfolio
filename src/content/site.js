@@ -17,7 +17,7 @@ export const content = {
     intro: {
       title: 'Desarrollador Full Stack.',
       subtitle:
-        'Hola, soy Alejandro Esteve Maza. Desarrollo productos web escalables y orientados a negocio desde Espana.',
+        'Hola, soy <strong>Alejandro Esteve Maza</strong>. Desarrollo productos web escalables y orientados a negocio desde Espana.',
       cta: 'Disponible para nuevos proyectos.',
       skillsTitle: 'Tecnologias',
     },
@@ -107,7 +107,7 @@ export const content = {
     intro: {
       title: 'Full-Stack Developer.',
       subtitle:
-        "Hi, I'm Alejandro Esteve Maza. I build scalable, business-focused web products from Spain.",
+        "Hi, I'm <strong>Alejandro Esteve Maza</strong>. I build scalable, business-focused web products from Spain.",
       cta: 'Open to new projects.',
       skillsTitle: 'Tech Stack',
     },
