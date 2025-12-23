@@ -29,15 +29,10 @@ const {
       (() => {
         const root = document.documentElement;
         const storedTheme = localStorage.getItem("theme");
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
         const theme =
           storedTheme === "dark" || storedTheme === "light"
             ? storedTheme
-            : prefersDark
-              ? "dark"
-              : "light";
+            : "light";
 
         root.classList.remove("light", "dark");
         root.classList.add(theme);

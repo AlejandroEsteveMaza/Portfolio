@@ -6,17 +6,23 @@ type SkillsMarqueeProps = {
   duration?: string;
 };
 
-const skillFiles = import.meta.glob<string>(
-  "/public/images/skills/*.{png,svg,webp,jpg,jpeg}",
-  {
-    eager: true,
-    as: "url",
-  }
+const skillFiles = import.meta.glob(
+  "../../../public/images/skills/*.{png,svg,webp,jpg,jpeg}"
 );
 
-const skillImages = Object.entries(skillFiles)
-  .sort(([a], [b]) => a.localeCompare(b, undefined, { sensitivity: "base" }))
-  .map(([, url]) => url);
+const normalizePublicUrl = (path: string) => {
+  const normalized = path.replace(/\\/g, "/");
+  const marker = "/public/";
+  const index = normalized.lastIndexOf(marker);
+  if (index === -1) {
+    return normalized.startsWith("/") ? normalized : `/${normalized}`;
+  }
+  return `/${normalized.slice(index + marker.length)}`;
+};
+
+const skillImages = Object.keys(skillFiles)
+  .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+  .map((path) => normalizePublicUrl(path));
 
 const labelMap: Record<string, string> = {
   aws: "AWS",
@@ -57,7 +63,7 @@ const joinClasses = (...classes: Array<string | undefined>) => {
 export const SkillsMarquee = ({
   className,
   gap = "2.75rem",
-  duration = "32s",
+  duration = "48s",
 }: SkillsMarqueeProps) => {
   if (!skillImages.length) {
     return null;
