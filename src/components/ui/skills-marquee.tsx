@@ -6,16 +6,18 @@ type SkillsMarqueeProps = {
   duration?: string;
 };
 
-const skillFiles = import.meta.glob<string>(
-  "/public/images/skills/*.{png,svg,webp,jpg,jpeg}",
-  {
-    eager: true,
-    as: "url",
-  }
+const skillFiles = import.meta.glob(
+  "../../../public/images/skills/*.{png,svg,webp,jpg,jpeg}"
 );
 
 const normalizePublicUrl = (path: string) => {
-  return path.startsWith("/public/") ? path.slice("/public".length) : path;
+  const normalized = path.replace(/\\/g, "/");
+  const marker = "/public/";
+  const index = normalized.lastIndexOf(marker);
+  if (index === -1) {
+    return normalized.startsWith("/") ? normalized : `/${normalized}`;
+  }
+  return `/${normalized.slice(index + marker.length)}`;
 };
 
 const skillImages = Object.keys(skillFiles)
