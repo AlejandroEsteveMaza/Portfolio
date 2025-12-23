@@ -33,7 +33,7 @@
   z-index: 1;
 }
 
-.intro-title h1 {
+.intro-title__heading {
   font-size: 3.7rem;
   margin: 0;
   letter-spacing: 2px;
@@ -195,7 +195,7 @@
   .intro-section {
     padding: 10.5rem 6rem 6rem 6rem;
   }
-  .intro-title h1 {
+  .intro-title__heading {
     font-size: 3rem;
   }
   .intro-p {
@@ -217,7 +217,7 @@
   .intro-img {
     margin-bottom: 1.5rem;
   }
-  .intro-title h1,
+  .intro-title__heading,
   .intro-p,
   .intro-cta {
     text-align: center;
@@ -251,7 +251,7 @@
     align-items: center;
     justify-content: center;
   }
-  .intro-title h1 {
+  .intro-title__heading {
     font-size: 2.3rem;
   }
   .intro-p {

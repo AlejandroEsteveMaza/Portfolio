@@ -3,15 +3,16 @@ import "../styles/intro.css";
 import { MagneticParticles } from "./ui/magnetic-particles";
 import { SkillsMarquee } from "./ui/skills-marquee";
 
-const { copy } = Astro.props;
+const { copy, headingTag = "h1", sectionId = "home" } = Astro.props;
+const HeadingTag = headingTag;
 ---
-<section id="home" class="intro-section">
+<section id={sectionId} class="intro-section">
   <div class="intro-particles" aria-hidden="true">
     <MagneticParticles client:load className="intro-particles-canvas" />
   </div>
   <div class="intro-top">
     <div class="intro-title">
-      <h1>{copy.intro.title}</h1>
+      <HeadingTag class="intro-title__heading">{copy.intro.title}</HeadingTag>
       <p class="intro-p" set:html={copy.intro.subtitle}></p>
       <p class="intro-cta">{copy.intro.cta}</p>
       <ul class="intro-ul">
