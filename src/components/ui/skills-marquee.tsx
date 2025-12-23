@@ -14,9 +14,13 @@ const skillFiles = import.meta.glob<string>(
   }
 );
 
-const skillImages = Object.entries(skillFiles)
-  .sort(([a], [b]) => a.localeCompare(b, undefined, { sensitivity: "base" }))
-  .map(([, url]) => url);
+const normalizePublicUrl = (path: string) => {
+  return path.startsWith("/public/") ? path.slice("/public".length) : path;
+};
+
+const skillImages = Object.keys(skillFiles)
+  .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+  .map((path) => normalizePublicUrl(path));
 
 const labelMap: Record<string, string> = {
   aws: "AWS",
@@ -57,7 +61,7 @@ const joinClasses = (...classes: Array<string | undefined>) => {
 export const SkillsMarquee = ({
   className,
   gap = "2.75rem",
-  duration = "32s",
+  duration = "48s",
 }: SkillsMarqueeProps) => {
   if (!skillImages.length) {
     return null;
