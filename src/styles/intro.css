@@ -113,6 +113,22 @@
   color: var(--purple);
 }
 
+.flag-es {
+  display: inline-block;
+  width: 1.05em;
+  height: 0.72em;
+  margin-left: 0.2em;
+  vertical-align: -0.08em;
+  border-radius: 0.1em;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: linear-gradient(
+    to bottom,
+    #aa151b 0 25%,
+    #f1bf00 25% 75%,
+    #aa151b 75% 100%
+  );
+}
+
 .intro-ul {
   list-style: none;
   padding: 0;

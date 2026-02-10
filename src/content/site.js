@@ -18,7 +18,7 @@ export const content = {
     intro: {
       title: 'Hey, soy Alejandro',
       subtitle:
-        '+7 a&#241;os de experiencia. <strong>Desarrollador y Project Manager</strong> de Valencia, Espa&#241;a &#x1F1EA;&#x1F1F8;. Especializado en el desarrollo de productos web orientados a negocio.',
+        '+7 a&#241;os de experiencia. <strong>Desarrollador y Project Manager</strong> de Valencia, Espa&#241;a <span class="flag-es" role="img" aria-label="Bandera de Espa&#241;a"></span>. Especializado en el desarrollo de productos web orientados a negocio.',
       cta: 'Disponible para trabajar',
       contactAction: 'Contactame',
       skillsTitle: 'Tecnologias',
