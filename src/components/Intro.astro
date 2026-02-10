@@ -1,13 +1,13 @@
 ---
 import "../styles/intro.css";
-import { MagneticParticles } from "./ui/magnetic-particles";
+import { AmbientParticles } from "./ui/ambient-particles";
 import { SkillsMarquee } from "./ui/skills-marquee";
 
 const { copy } = Astro.props;
 ---
 <section id="home" class="intro-section">
   <div class="intro-particles" aria-hidden="true">
-    <MagneticParticles client:load className="intro-particles-canvas" />
+    <AmbientParticles client:load className="intro-particles-canvas" />
   </div>
   <div class="intro-top">
     <div class="intro-title">

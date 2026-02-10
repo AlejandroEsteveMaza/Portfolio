@@ -16,6 +16,16 @@ const { copy } = Astro.props;
           <h3>{item.role}</h3>
           <p class="Resume-company">{item.company}</p>
           <p class="Resume-description">{item.description}</p>
+          {item.positions && item.positions.length > 0 && (
+            <ul class="Resume-positions">
+              {item.positions.map((position) => (
+                <li>
+                  <p class="Resume-position-role">{position.role}</p>
+                  <p class="Resume-position-period">{position.period}</p>
+                </li>
+              ))}
+            </ul>
+          )}
         </article>
       </li>
     ))}

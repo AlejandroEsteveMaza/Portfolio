@@ -1,6 +1,7 @@
 .intro-section {
   box-sizing: border-box;
-  padding: 11rem 11rem 6.5rem 11rem;
+  padding: calc(var(--section-padding-y-desktop) + 4rem)
+    var(--section-padding-x-desktop) var(--section-padding-y-desktop);
   height: 100vh;
   min-height: 900px;
   display: flex;
@@ -263,7 +264,8 @@
     margin: 0 auto;
   }
   .intro-section {
-    padding: 10.5rem 6rem 6rem 6rem;
+    padding: calc(var(--section-padding-y-tablet) + 3.75rem)
+      var(--section-padding-x-tablet) var(--section-padding-y-tablet);
   }
   .intro-title h1 {
     font-size: 3rem;
@@ -276,7 +278,8 @@
 
 @media only screen and (max-width: 1139px) {
   .intro-section {
-    padding: 6rem 1.5rem 0.5rem 1.5rem;
+    padding: calc(var(--section-padding-y-mobile) + 2rem)
+      var(--section-padding-x-mobile) var(--section-padding-y-mobile);
     height: auto;
     min-height: 0;
     justify-content: flex-start;
@@ -316,7 +319,6 @@
 
 @media only screen and (max-width: 670px) {
   .intro-section {
-    padding-bottom: 0.25rem;
     gap: 1.5rem;
   }
   .intro-title {

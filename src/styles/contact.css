@@ -2,7 +2,7 @@
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 6.5rem 11rem;
+  padding: var(--section-padding-y-desktop) var(--section-padding-x-desktop);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   font-size: 1.7rem;
   padding: 0 0 0.3rem 0;
   margin: 0;
-  margin-bottom: 3rem;
+  margin-bottom: var(--section-title-gap-desktop);
   border-bottom: 3px solid var(--purple);
   color: var(--purple);
 }
@@ -72,13 +72,14 @@
 
 @media only screen and (max-width: 875px) {
   .Contact-container {
-    padding: 6.5rem 1.5rem;
+    padding: var(--section-padding-y-mobile) var(--section-padding-x-mobile);
   }
 }
 
 @media only screen and (max-width: 572px) {
   .Contact-title {
     font-size: 1.3rem;
+    margin-bottom: var(--section-title-gap-mobile);
   }
   .Contact-subtitle {
     font-size: 0.8rem;

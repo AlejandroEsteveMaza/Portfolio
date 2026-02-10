@@ -1,15 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 
-type MagneticParticlesProps = {
+type AmbientParticlesProps = {
   className?: string;
   colors?: string[];
   density?: number;
   minSize?: number;
   maxSize?: number;
   speed?: number;
-  magnetRadius?: number;
-  magnetStrength?: number;
   breathingSpeed?: number;
   breathingIntensity?: number;
 };
@@ -125,22 +123,18 @@ const usePrefersReducedMotion = () => {
   return prefersReducedMotion;
 };
 
-export const MagneticParticles = ({
+export const AmbientParticles = ({
   className,
   colors = DEFAULT_COLORS,
   density = 16000,
   minSize = 1.0,
   maxSize = 3.4,
   speed = 0.20,
-  magnetRadius = 180,
-  magnetStrength = 1.2,
   breathingSpeed = 0.28,
   breathingIntensity = 0.006,
-}: MagneticParticlesProps) => {
+}: AmbientParticlesProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const pointerRef = useRef({ x: 0, y: 0, active: false });
-  const rectRef = useRef({ left: 0, top: 0, width: 0, height: 0 });
   const animationRef = useRef<number | null>(null);
   const sizeRef = useRef({ width: 0, height: 0, dpr: 1 });
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -190,25 +184,8 @@ export const MagneticParticles = ({
       });
     };
 
-    const updateRect = () => {
-      const rect = canvas.getBoundingClientRect();
-      rectRef.current = {
-        left: rect.left,
-        top: rect.top,
-        width: rect.width,
-        height: rect.height,
-      };
-      pointerRef.current.active = false;
-    };
-
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
-      rectRef.current = {
-        left: rect.left,
-        top: rect.top,
-        width: rect.width,
-        height: rect.height,
-      };
       const width = Math.max(1, rect.width);
       const height = Math.max(1, rect.height);
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -229,18 +206,6 @@ export const MagneticParticles = ({
       palette = resolvePalette(canvas, colors);
       createParticles();
       drawStatic();
-    };
-
-    const updatePointer = (event: PointerEvent) => {
-      const rect = rectRef.current;
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      const isActive = x >= 0 && y >= 0 && x <= rect.width && y <= rect.height;
-      pointerRef.current = {
-        x,
-        y,
-        active: isActive,
-      };
     };
 
     const draw = (time: number, animate: boolean) => {
@@ -265,18 +230,6 @@ export const MagneticParticles = ({
           const wanderForce = particle.wander * 0.03;
           particle.vx += Math.cos(t * 0.35 + particle.phase) * wanderForce;
           particle.vy += Math.sin(t * 0.35 + particle.phase) * wanderForce;
-
-          if (pointerRef.current.active) {
-            const dx = pointerRef.current.x - particle.x;
-            const dy = pointerRef.current.y - particle.y;
-            const distance = Math.sqrt(dx * dx + dy * dy) || 1;
-            if (distance < magnetRadius) {
-              const force =
-                ((magnetRadius - distance) / magnetRadius) * magnetStrength;
-              particle.vx += (dx / distance) * force * 0.18;
-              particle.vy += (dy / distance) * force * 0.18;
-            }
-          }
 
           particle.vx *= 0.96;
           particle.vy *= 0.96;
@@ -344,11 +297,6 @@ export const MagneticParticles = ({
     }
 
     if (!prefersReducedMotion) {
-      window.addEventListener("pointermove", updatePointer);
-    }
-    window.addEventListener("scroll", updateRect, { passive: true });
-
-    if (!prefersReducedMotion) {
       animationRef.current = window.requestAnimationFrame(animate);
     }
 
@@ -363,8 +311,6 @@ export const MagneticParticles = ({
         window.removeEventListener("resize", resize);
       }
 
-      window.removeEventListener("pointermove", updatePointer);
-      window.removeEventListener("scroll", updateRect);
     };
   }, [
     colors,
@@ -372,8 +318,6 @@ export const MagneticParticles = ({
     minSize,
     maxSize,
     speed,
-    magnetRadius,
-    magnetStrength,
     breathingSpeed,
     breathingIntensity,
     prefersReducedMotion,

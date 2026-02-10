@@ -6,7 +6,7 @@ export const content = {
         'Desarrollador Full Stack en Espana. Creo productos web con React, Java, AWS y bases de datos. Proyectos, experiencia y contacto.',
       jobTitle: 'Desarrollador Full Stack',
     },
-    showProjects: false,
+    showProjects: true,
     showContact: false,
     nav: {
       home: 'Inicio',
@@ -25,53 +25,24 @@ export const content = {
     },
     about: {
       title: 'Sobre mi',
-      headline: 'Un desarrollador entusiasta',
       body:
-        'Soy <strong>Desarrollador Full Stack</strong> con experiencia en APIs web, sistemas embebidos y soluciones cloud. Transformo ideas en codigo y resuelvo problemas con enfoque pragmatico. En mi tiempo libre leo, hago deporte y disfruto de la naturaleza.',
+        'Me llamo <strong>Alejandro Esteve Maza</strong>, <strong>desarrollador de software</strong> especializado en <strong>soluciones a medida</strong>, <strong>automatizacion de procesos</strong> e <strong>inteligencia artificial</strong>. Ayudo a <strong>founders no tecnicos</strong> y <strong>empresas</strong> a disenar, construir y <strong>automatizar software</strong> alineado con <strong>objetivos de negocio</strong>, reduciendo friccion, <strong>incertidumbre tecnica</strong> y <strong>sobrecostes</strong>.<br /><br />Mi enfoque prioriza <strong>resultados</strong>: <strong>sistemas eficientes</strong> que eliminan <strong>puntos de dolor</strong> y generan <strong>impacto medible</strong>. Tambien trabajo como <strong>Project Manager</strong>, mejorando la <strong>organizacion</strong> y <strong>productividad de equipos de desarrollo</strong> para lograr <strong>entregas sostenibles</strong>. Ademas, desarrollo <strong>productos propios</strong> y aplico <strong>IA aplicada a procesos y productos</strong> para llevar cada <strong>solucion tecnologica</strong> mas alla de lo tradicional.',
     },
     projects: {
-      title: 'Proyectos destacados',
+      title: 'Proyectos',
       techLabel: 'Stack utilizado',
+      liveLabel: 'Demo',
+      repoLabel: 'Codigo',
       items: [
         {
-          title: 'Plataforma SaaS de analitica',
+          title: 'GymTimerPro',
           description:
-            'Dashboard con KPIs en tiempo real, autenticacion segura y exportacion de informes para equipos de negocio.',
-          tech: ['React', 'Node', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Dashboard de analitica con graficas',
+            'App para temporizadores de entrenamiento, con bloques de trabajo y descanso configurables.',
+          tech: ['Swift'],
+          image: '/images/Projects/GymTimerPro.png',
+          imageAlt: 'Preview de GymTimerPro',
           liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Sistema de reservas para clinicas',
-          description:
-            'Reservas online con recordatorios, gestion de agenda y panel de administracion.',
-          tech: ['React', 'Java', 'MySQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Panel de reservas medicas',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Ecommerce con integraciones',
-          description:
-            'Catalogo optimizado, pagos seguros y sincronizacion con inventario para mejorar conversiones.',
-          tech: ['React', 'Spring', 'AWS'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Tienda online con productos destacados',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'API para IoT industrial',
-          description:
-            'Servicios de ingestion y monitorizacion para dispositivos conectados, con alertas y trazabilidad.',
-          tech: ['Java', 'AWS', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Panel de monitorizacion industrial',
-          liveUrl: '',
-          repoUrl: '',
+          repoUrl: 'https://github.com/AlejandroEsteveMaza/GymTimerPro',
         },
       ],
     },
@@ -79,25 +50,42 @@ export const content = {
       title: 'Experiencia laboral',
       items: [
         {
-          period: '2022 - Actualidad',
-          role: 'Senior Full-Stack Developer',
-          company: 'Nova Commerce',
+          period: '2025 - Actualmente',
+          role: 'Project Manager & Product Engineer',
+          company: 'ED AVIATION',
           description:
-            'Lidero el desarrollo de una plataforma B2B, coordinando roadmap tecnico, arquitectura y entregas iterativas con foco en conversion y rendimiento.'
+            'Coordinacion de roadmap de producto, planificacion de entregas y alineacion tecnica con objetivos de negocio.'
+        },
+        {
+          period: '2022 - 2025',
+          role: 'Full-Stack Developer AWS',
+          company: 'VIEWNEXT',
+          description:
+            'Evolucion tecnica en plataforma AWS con foco en calidad de arquitectura, entrega continua y acompanamiento al equipo.',
+          positions: [
+            {
+              role: 'Lider Tecnico Backend AWS',
+              period: '2024 - 2025'
+            },
+            {
+              role: 'Analista Desarrollador AWS',
+              period: '2022 - 2024'
+            }
+          ]
         },
         {
           period: '2020 - 2022',
-          role: 'Project Manager & Product Engineer',
-          company: 'Atlas Digital Studio',
+          role: 'Full-Stack Developer .NET',
+          company: 'AYDAI',
           description:
-            'Gestione equipos multidisciplinares y defini backlog funcional para productos SaaS. Tambien implemente modulos clave en frontend y backend.'
+            'Desarrollo full-stack con stack .NET, integraciones de APIs y mejoras continuas de rendimiento en aplicaciones internas.'
         },
         {
-          period: '2018 - 2020',
-          role: 'Software Engineer',
-          company: 'Mediterranean Systems',
+          period: '2018',
+          role: 'Front-End Developer',
+          company: 'Fourvenues',
           description:
-            'Desarrolle APIs y servicios cloud para integraciones empresariales, mejorando la observabilidad, estabilidad de despliegues y tiempos de respuesta.'
+            'Construccion de interfaces frontend, componentes reutilizables y mejoras de experiencia de usuario en producto web.'
         }
       ]
     },
@@ -109,7 +97,7 @@ export const content = {
       linkedinLabel: 'LinkedIn',
     },
     footer: {
-      text: 'Creado por Alejandro Esteve Maza | Todos los derechos reservados',
+      text: '© 2026 Alejandro Esteve Maza. Todos los derechos reservados',
     },
   },
   en: {
@@ -119,7 +107,7 @@ export const content = {
         'Full-stack developer in Spain. I build scalable web products with React, Java, AWS, and databases. Projects, experience, and contact.',
       jobTitle: 'Full-Stack Developer',
     },
-    showProjects: false,
+    showProjects: true,
     showContact: false,
     nav: {
       home: 'Home',
@@ -138,53 +126,24 @@ export const content = {
     },
     about: {
       title: 'About me',
-      headline: 'An enthusiastic developer',
       body:
-        'I am a <strong>Full-Stack Developer</strong> with experience across web APIs, embedded systems, and cloud solutions. I turn ideas into code and solve problems with a pragmatic mindset. In my free time I read, train, and spend time outdoors.',
+        'My name is Alejandro Esteve Maza.<br /><br />I am a software developer specialized in creating custom solutions aligned with each client real needs. I am passionate about designing and building <strong>automations that remove pain points</strong>, optimize processes, and create direct business impact.<br /><br />I work with <strong>non-technical founders and companies</strong> to design, build, and automate software without unnecessary friction. My approach reduces technical uncertainty, avoids overruns, and prioritizes outcomes: solutions that work and deliver value, not just clean code.<br /><br />Beyond development, I enjoy my role as a <strong>Project Manager</strong>, focused on improving organization, efficiency, and effectiveness across development teams while ensuring clear and sustainable delivery.<br /><br />I also build software independently and, above all, I am excited to <strong>apply artificial intelligence</strong> to boost products, processes, and teams, taking each solution beyond the traditional approach.',
     },
     projects: {
-      title: 'Featured projects',
+      title: 'Projects',
       techLabel: 'Tech used',
+      liveLabel: 'Live',
+      repoLabel: 'Code',
       items: [
         {
-          title: 'Analytics SaaS platform',
+          title: 'GymTimerPro',
           description:
-            'Real-time KPI dashboard, secure authentication, and report exports for business teams.',
-          tech: ['React', 'Node', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Analytics dashboard with charts',
+            'Placeholder text: workout timer app with configurable work/rest intervals and clean mobile UX.',
+          tech: ['Swift'],
+          image: '/images/Projects/GymTimerPro.png',
+          imageAlt: 'GymTimerPro preview',
           liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Clinic booking system',
-          description:
-            'Online bookings with reminders, scheduling management, and an admin dashboard.',
-          tech: ['React', 'Java', 'MySQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Medical booking admin panel',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Ecommerce with integrations',
-          description:
-            'Optimized catalog, secure payments, and inventory sync to improve conversions.',
-          tech: ['React', 'Spring', 'AWS'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Online store product grid',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Industrial IoT API',
-          description:
-            'Ingestion and monitoring services for connected devices, with alerts and traceability.',
-          tech: ['Java', 'AWS', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Industrial monitoring dashboard',
-          liveUrl: '',
-          repoUrl: '',
+          repoUrl: 'https://github.com/AlejandroEsteveMaza/GymTimerPro',
         },
       ],
     },
@@ -192,25 +151,42 @@ export const content = {
       title: 'Work experience',
       items: [
         {
-          period: '2022 - Present',
-          role: 'Senior Full-Stack Developer',
-          company: 'Nova Commerce',
+          period: '2025 - Actualmente',
+          role: 'Project Manager & Product Engineer',
+          company: 'ED AVIATION',
           description:
-            'I lead the development of a B2B platform, owning technical roadmap, architecture decisions, and iterative delivery with a business-first approach.'
+            'Placeholder text: product roadmap coordination, delivery planning, and technical alignment with business goals.'
+        },
+        {
+          period: '2022 - 2025',
+          role: 'AWS track',
+          company: 'VIEWNEXT',
+          description:
+            'Placeholder text: AWS-focused progression with architecture ownership, delivery quality, and technical leadership.',
+          positions: [
+            {
+              role: 'Backend Tech Lead AWS',
+              period: '2024 - 2025'
+            },
+            {
+              role: 'AWS Developer Analyst',
+              period: '2022 - 2024'
+            }
+          ]
         },
         {
           period: '2020 - 2022',
-          role: 'Project Manager & Product Engineer',
-          company: 'Atlas Digital Studio',
+          role: 'Full-Stack Developer .NET',
+          company: 'AYDAI',
           description:
-            'I coordinated cross-functional squads and managed the product backlog for SaaS initiatives while delivering key frontend and backend modules.'
+            'Placeholder text: full-stack development with .NET stack, API integrations, and iterative performance improvements.'
         },
         {
-          period: '2018 - 2020',
-          role: 'Software Engineer',
-          company: 'Mediterranean Systems',
+          period: '2018 - 2018',
+          role: 'Front-End Developer',
+          company: 'Fourvenues',
           description:
-            'I built cloud services and API integrations for enterprise clients, improving reliability, deployment quality, and system observability.'
+            'Placeholder text: frontend implementation, reusable UI components, and user experience improvements for web products.'
         }
       ]
     },
@@ -222,7 +198,7 @@ export const content = {
       linkedinLabel: 'LinkedIn',
     },
     footer: {
-      text: 'Created by Alejandro Esteve Maza | All rights reserved',
+      text: '© 2026 Alejandro Esteve Maza. All rights reserved',
     },
   },
 };
