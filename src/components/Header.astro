@@ -10,10 +10,10 @@ const menuId = "mobile-menu";
     <a class="nav-logo" href={basePath}>AEM</a>
     <ul class="nav-ul">
       <li><a href="#home">{copy.nav.home}</a></li>
-      <li><a href="#about">{copy.nav.about}</a></li>
       {copy.showProjects && <li><a href="#projects">{copy.nav.projects}</a></li>}
-      <li><a href="#resume">{copy.nav.resume}</a></li>
-      <li><a href="#contact">{copy.nav.contact}</a></li>
+      <li><a href="#experience">{copy.nav.resume}</a></li>
+      <li><a href="#about">{copy.nav.about}</a></li>
+      {copy.showContact && <li><a href="#contact">{copy.nav.contact}</a></li>}
     </ul>
     <div class="nav-controls desktop" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
       <div class="lang-toggle" aria-label="Language">
@@ -62,10 +62,10 @@ const menuId = "mobile-menu";
   <nav id={menuId} class="mobile-nav" aria-label="Mobile navigation">
     <a class="mobile-close" href={basePath} aria-label="Close navigation">✕</a>
     <a href="#home">{copy.nav.home}</a>
-    <a href="#about">{copy.nav.about}</a>
     {copy.showProjects && <a href="#projects">{copy.nav.projects}</a>}
-    <a href="#resume">{copy.nav.resume}</a>
-    <a href="#contact">{copy.nav.contact}</a>
+    <a href="#experience">{copy.nav.resume}</a>
+    <a href="#about">{copy.nav.about}</a>
+    {copy.showContact && <a href="#contact">{copy.nav.contact}</a>}
     <div class="nav-controls mobile" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
       <div class="lang-toggle mobile" aria-label="Language">
         <a href="/" class={lang === "es" ? "lang-active" : ""} aria-current={lang === "es" ? "page" : undefined}>

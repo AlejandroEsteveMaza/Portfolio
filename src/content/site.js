@@ -7,18 +7,20 @@ export const content = {
       jobTitle: 'Desarrollador Full Stack',
     },
     showProjects: false,
+    showContact: false,
     nav: {
       home: 'Inicio',
       about: 'Sobre mi',
       projects: 'Proyectos',
-      resume: 'CV',
+      resume: 'Experiencia',
       contact: 'Contacto',
     },
     intro: {
-      title: 'Desarrollador Full Stack.',
+      title: 'Hey, soy Alejandro',
       subtitle:
-        'Hola, soy <strong>Alejandro Esteve Maza</strong>. Desarrollo productos web escalables y orientados a negocio desde Espana.',
-      cta: 'Disponible para nuevos proyectos.',
+        '+7 a&#241;os de experiencia. <strong>Desarrollador y Project Manager</strong> de Valencia, Espa&#241;a &#x1F1EA;&#x1F1F8;. Especializado en el desarrollo de productos web orientados a negocio.',
+      cta: 'Disponible para trabajar',
+      contactAction: 'Contactame',
       skillsTitle: 'Tecnologias',
     },
     about: {
@@ -74,9 +76,30 @@ export const content = {
       ],
     },
     resume: {
-      title: 'Curriculum',
-      download: 'Descargar PDF',
-      previewTitle: 'Vista previa del CV',
+      title: 'Experiencia laboral',
+      items: [
+        {
+          period: '2022 - Actualidad',
+          role: 'Senior Full-Stack Developer',
+          company: 'Nova Commerce',
+          description:
+            'Lidero el desarrollo de una plataforma B2B, coordinando roadmap tecnico, arquitectura y entregas iterativas con foco en conversion y rendimiento.'
+        },
+        {
+          period: '2020 - 2022',
+          role: 'Project Manager & Product Engineer',
+          company: 'Atlas Digital Studio',
+          description:
+            'Gestione equipos multidisciplinares y defini backlog funcional para productos SaaS. Tambien implemente modulos clave en frontend y backend.'
+        },
+        {
+          period: '2018 - 2020',
+          role: 'Software Engineer',
+          company: 'Mediterranean Systems',
+          description:
+            'Desarrolle APIs y servicios cloud para integraciones empresariales, mejorando la observabilidad, estabilidad de despliegues y tiempos de respuesta.'
+        }
+      ]
     },
     contact: {
       title: 'Contacto',
@@ -97,18 +120,20 @@ export const content = {
       jobTitle: 'Full-Stack Developer',
     },
     showProjects: false,
+    showContact: false,
     nav: {
       home: 'Home',
       about: 'About',
       projects: 'Projects',
-      resume: 'Resume',
+      resume: 'Experience',
       contact: 'Contact',
     },
     intro: {
-      title: 'Full-Stack Developer.',
+      title: "Hey, I'm Alejandro",
       subtitle:
         "Hi, I'm <strong>Alejandro Esteve Maza</strong>. I build scalable, business-focused web products from Spain.",
-      cta: 'Open to new projects.',
+      cta: 'Available for work',
+      contactAction: 'Contact me',
       skillsTitle: 'Tech Stack',
     },
     about: {
@@ -164,9 +189,30 @@ export const content = {
       ],
     },
     resume: {
-      title: 'Resume',
-      download: 'Download PDF',
-      previewTitle: 'Resume preview',
+      title: 'Work experience',
+      items: [
+        {
+          period: '2022 - Present',
+          role: 'Senior Full-Stack Developer',
+          company: 'Nova Commerce',
+          description:
+            'I lead the development of a B2B platform, owning technical roadmap, architecture decisions, and iterative delivery with a business-first approach.'
+        },
+        {
+          period: '2020 - 2022',
+          role: 'Project Manager & Product Engineer',
+          company: 'Atlas Digital Studio',
+          description:
+            'I coordinated cross-functional squads and managed the product backlog for SaaS initiatives while delivering key frontend and backend modules.'
+        },
+        {
+          period: '2018 - 2020',
+          role: 'Software Engineer',
+          company: 'Mediterranean Systems',
+          description:
+            'I built cloud services and API integrations for enterprise clients, improving reliability, deployment quality, and system observability.'
+        }
+      ]
     },
     contact: {
       title: 'Contact',

@@ -71,6 +71,13 @@
   margin-right: 4rem;
   font-size: 1.9rem;
   margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+.About-text p {
+  width: 100%;
+  text-align: left;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -97,21 +104,20 @@
 }
 
 @media only screen and (max-width: 1070px) {
+  .About-container {
+    padding-top: 4rem;
+  }
   .About-container-2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
   }
-  .About-text h3,
-  .About-text p {
-    text-align: center;
-  }
 }
 
 @media only screen and (max-width: 720px) {
   .About-container {
-    padding: 6.5rem 4.5rem;
+    padding: 3.5rem 4.5rem 6.5rem;
   }
   .About-text {
     width: 100%;
@@ -123,7 +129,7 @@
 
 @media only screen and (max-width: 500px) {
   .About-container {
-    padding: 6.5rem 1.5rem;
+    padding: 3rem 1.5rem 6rem;
   }
   .About-title h2 {
     font-size: 1.3rem;

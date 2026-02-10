@@ -2,23 +2,22 @@
 import "../styles/resume.css";
 
 const { copy } = Astro.props;
-const googleDriveFileId = "1IurDW4tSqNSTeM-J0Xy9jEGdrHIH8KpB";
-const googleDrivePreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
-const googleDriveDownloadUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
 ---
-<section id="resume" class="Resume-container">
+<section id="experience" class="Resume-container">
   <div class="Resume-title">
     <h2>{copy.resume.title}</h2>
   </div>
-  <div class="Resume">
-    <iframe src={googleDrivePreviewUrl} title={copy.resume.previewTitle} loading="lazy"></iframe>
-  </div>
-  <a
-    class="btn-download"
-    href={googleDriveDownloadUrl}
-    target="_blank"
-    rel="noreferrer noopener"
-  >
-    {copy.resume.download}
-  </a>
+  <ol class="Resume-timeline">
+    {copy.resume.items.map((item) => (
+      <li class="Resume-item">
+        <span class="Resume-dot" aria-hidden="true"></span>
+        <article class="Resume-card">
+          <p class="Resume-period">{item.period}</p>
+          <h3>{item.role}</h3>
+          <p class="Resume-company">{item.company}</p>
+          <p class="Resume-description">{item.description}</p>
+        </article>
+      </li>
+    ))}
+  </ol>
 </section>
