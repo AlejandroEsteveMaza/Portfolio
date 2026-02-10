@@ -79,10 +79,10 @@ const jsonLd = {
   <Header lang={lang} copy={copy} />
   <main>
     <Intro copy={copy} />
-    <About copy={copy} />
     {copy.showProjects && <Projects copy={copy} />}
     <Resume copy={copy} />
-    <Contact copy={copy} />
+    <About copy={copy} />
+    {copy.showContact && <Contact copy={copy} />}
   </main>
   <Footer copy={copy} />
 </BaseLayout>

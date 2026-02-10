@@ -7,82 +7,69 @@ const { copy } = Astro.props;
   <div class="Proyects-title">
     <h2>{copy.projects.title}</h2>
   </div>
-  <div class="Proyects-card-container">
+  <div class="Projects-list">
     {copy.projects.items.map((project, index) => {
-      const isEven = index % 2 !== 0;
+      const hasLinks = Boolean(project.liveUrl || project.repoUrl);
       return (
-        <article class={`proyect-${index + 1} proyect-container`}>
-          {!isEven && (
-            <div class="left">
-              <div class="top">
-                <h3 class="proyect-title">{project.title}</h3>
-                <p class="proyect-description">{project.description}</p>
-              </div>
-              <div class="bottom">
-                <h3>{copy.projects.techLabel}</h3>
-                <div class="proyect-skills">
-                  {project.tech.map((tech) => (
-                    <span class="tech-pill">{tech}</span>
-                  ))}
-                </div>
-              </div>
+        <article class={`project-row ${index % 2 !== 0 ? "project-row-reverse" : ""}`}>
+          {project.liveUrl ? (
+            <a
+              class="project-visual"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${project.title} live`}
+            >
+              <img class="project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
+            </a>
+          ) : (
+            <div class="project-visual">
+              <img class="project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
             </div>
           )}
-          <div class="right">
-            {project.liveUrl ? (
-              <a
-                class="img-link"
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={`${project.title} live`}
-              >
-                <img class="project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
-              </a>
-            ) : (
-              <div class="img-link">
-                <img class="project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
+          <div class="project-info">
+            <h3 class="project-title">{project.title}</h3>
+            <div class="project-tech">
+              {project.tech.map((tech) => {
+                const isSwift = tech.toLowerCase() === "swift";
+                return (
+                  <span class="tech-pill">
+                    {isSwift && <i class="bx bx-sm bxl-apple" aria-hidden="true"></i>}
+                    <span>{tech}</span>
+                  </span>
+                );
+              })}
+            </div>
+            <p class="project-description">{project.description}</p>
+            {hasLinks && (
+              <div class="project-links">
+                {project.repoUrl && (
+                  <a
+                    class="project-link"
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`${project.title} repository`}
+                  >
+                    <i class="bx bx-sm bxl-github"></i>
+                    <span>{copy.projects.repoLabel}</span>
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a
+                    class="project-link"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`${project.title} live`}
+                  >
+                    <i class="bx bx-sm bx-link-alt"></i>
+                    <span>{copy.projects.liveLabel}</span>
+                  </a>
+                )}
               </div>
             )}
-            <div class="proyect-links">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label={`${project.title} live`}
-                >
-                  <i class="bx bx-sm bx-globe"></i>
-                </a>
-              )}
-              {project.repoUrl && (
-                <a
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label={`${project.title} repository`}
-                >
-                  <i class="bx bx-sm bxl-github"></i>
-                </a>
-              )}
-            </div>
           </div>
-          {isEven && (
-            <div class="left">
-              <div class="top">
-                <h3 class="proyect-title">{project.title}</h3>
-                <p class="proyect-description">{project.description}</p>
-              </div>
-              <div class="bottom">
-                <h3>{copy.projects.techLabel}</h3>
-                <div class="proyect-skills">
-                  {project.tech.map((tech) => (
-                    <span class="tech-pill">{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
         </article>
       );
     })}

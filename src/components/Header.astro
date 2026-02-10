@@ -2,114 +2,66 @@
 import "../styles/header.css";
 
 const { lang, copy } = Astro.props;
-const basePath = lang === "en" ? "/en/" : "/";
-const menuId = "mobile-menu";
 ---
 <header class="header">
-  <nav class="nav">
-    <a class="nav-logo" href={basePath}>AEM</a>
-    <ul class="nav-ul">
-      <li><a href="#home">{copy.nav.home}</a></li>
-      <li><a href="#about">{copy.nav.about}</a></li>
-      {copy.showProjects && <li><a href="#projects">{copy.nav.projects}</a></li>}
-      <li><a href="#resume">{copy.nav.resume}</a></li>
-      <li><a href="#contact">{copy.nav.contact}</a></li>
-    </ul>
-    <div class="nav-controls desktop" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
-      <div class="lang-toggle" aria-label="Language">
-        <a href="/" class={lang === "es" ? "lang-active" : ""} aria-current={lang === "es" ? "page" : undefined}>
-          ES
-        </a>
-        <a href="/en/" class={lang === "en" ? "lang-active" : ""} aria-current={lang === "en" ? "page" : undefined}>
-          EN
-        </a>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button
+      class="mobile-nav-toggle"
+      type="button"
+      aria-label={lang === "es" ? "Abrir menu" : "Open menu"}
+      aria-controls="mobile-nav-panel"
+      aria-expanded="false"
+      data-mobile-nav-toggle
+    >
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </button>
+    <div id="mobile-nav-panel" class="mobile-nav-panel">
+      {copy.showProjects && <a class="mobile-nav-link" href="#projects">{copy.nav.projects}</a>}
+      <a class="mobile-nav-link" href="#experience">{copy.nav.resume}</a>
+      <a class="mobile-nav-link" href="#about">{copy.nav.about}</a>
+      <a class="mobile-nav-link" href={copy.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>{copy.nav.contact}</a>
+      <div class="nav-controls mobile" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          data-label-light={lang === "es" ? "Activar modo claro" : "Switch to light mode"}
+          data-label-dark={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
+          aria-label={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
+          aria-pressed="false"
+        >
+          <span class="theme-icon icon-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4"></circle>
+              <line x1="12" y1="2" x2="12" y2="5"></line>
+              <line x1="12" y1="19" x2="12" y2="22"></line>
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+              <line x1="2" y1="12" x2="5" y2="12"></line>
+              <line x1="19" y1="12" x2="22" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon icon-moon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"></path>
+            </svg>
+          </span>
+        </button>
       </div>
-      <button
-        class="theme-toggle"
-        type="button"
-        data-theme-toggle
-        data-label-light={lang === "es" ? "Activar modo claro" : "Switch to light mode"}
-        data-label-dark={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
-        aria-label={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
-        aria-pressed="false"
-      >
-        <span class="theme-icon icon-sun" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <circle cx="12" cy="12" r="4"></circle>
-            <line x1="12" y1="2" x2="12" y2="5"></line>
-            <line x1="12" y1="19" x2="12" y2="22"></line>
-            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
-            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
-            <line x1="2" y1="12" x2="5" y2="12"></line>
-            <line x1="19" y1="12" x2="22" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
-            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
-          </svg>
-        </span>
-        <span class="theme-icon icon-moon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"></path>
-          </svg>
-        </span>
-      </button>
-    </div>
-    <a class="hamburger" href={`#${menuId}`} aria-label="Open navigation">
-      <span class="bar1"></span>
-      <span class="bar2"></span>
-      <span class="bar3"></span>
-    </a>
-  </nav>
-  <nav id={menuId} class="mobile-nav" aria-label="Mobile navigation">
-    <a class="mobile-close" href={basePath} aria-label="Close navigation">✕</a>
-    <a href="#home">{copy.nav.home}</a>
-    <a href="#about">{copy.nav.about}</a>
-    {copy.showProjects && <a href="#projects">{copy.nav.projects}</a>}
-    <a href="#resume">{copy.nav.resume}</a>
-    <a href="#contact">{copy.nav.contact}</a>
-    <div class="nav-controls mobile" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
-      <div class="lang-toggle mobile" aria-label="Language">
-        <a href="/" class={lang === "es" ? "lang-active" : ""} aria-current={lang === "es" ? "page" : undefined}>
-          ES
-        </a>
-        <a href="/en/" class={lang === "en" ? "lang-active" : ""} aria-current={lang === "en" ? "page" : undefined}>
-          EN
-        </a>
-      </div>
-      <button
-        class="theme-toggle"
-        type="button"
-        data-theme-toggle
-        data-label-light={lang === "es" ? "Activar modo claro" : "Switch to light mode"}
-        data-label-dark={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
-        aria-label={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
-        aria-pressed="false"
-      >
-        <span class="theme-icon icon-sun" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <circle cx="12" cy="12" r="4"></circle>
-            <line x1="12" y1="2" x2="12" y2="5"></line>
-            <line x1="12" y1="19" x2="12" y2="22"></line>
-            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
-            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
-            <line x1="2" y1="12" x2="5" y2="12"></line>
-            <line x1="19" y1="12" x2="22" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
-            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
-          </svg>
-        </span>
-        <span class="theme-icon icon-moon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"></path>
-          </svg>
-        </span>
-      </button>
     </div>
   </nav>
+
   <script is:inline>
     (() => {
       const root = document.documentElement;
       const storageKey = "theme";
       const buttons = document.querySelectorAll("[data-theme-toggle]");
+      let cleanupScrollSpy = null;
+      let cleanupMobileMenu = null;
 
       const updateButtons = (theme) => {
         const isDark = theme === "dark";
@@ -139,6 +91,196 @@ const menuId = "mobile-menu";
           setTheme(nextTheme);
         });
       });
+
+      const initScrollSpy = () => {
+        const links = Array.from(
+          document.querySelectorAll(".mobile-nav-link[href^='#']")
+        );
+
+        if (!links.length) {
+          return null;
+        }
+
+        const targets = links
+          .map((link) => {
+            const href = link.getAttribute("href");
+            const id = href ? href.slice(1) : "";
+            const section = id ? document.getElementById(id) : null;
+            return section ? { link, section } : null;
+          })
+          .filter(Boolean);
+
+        if (!targets.length) {
+          return null;
+        }
+
+        const setActiveLink = (activeLink) => {
+          links.forEach((link) => {
+            const isActive = link === activeLink;
+            link.classList.toggle("is-active", isActive);
+            link.setAttribute("aria-current", isActive ? "true" : "false");
+          });
+        };
+
+        const updateFromScroll = () => {
+          const pivot = window.innerHeight * 0.45;
+          let active = targets[0];
+
+          targets.forEach((target) => {
+            if (target.section.getBoundingClientRect().top <= pivot) {
+              active = target;
+            }
+          });
+
+          setActiveLink(active.link);
+        };
+
+        updateFromScroll();
+
+        if (!("IntersectionObserver" in window)) {
+          window.addEventListener("scroll", updateFromScroll, {
+            passive: true,
+          });
+          window.addEventListener("resize", updateFromScroll);
+          window.addEventListener("hashchange", updateFromScroll);
+
+          return () => {
+            window.removeEventListener("scroll", updateFromScroll);
+            window.removeEventListener("resize", updateFromScroll);
+            window.removeEventListener("hashchange", updateFromScroll);
+          };
+        }
+
+        const observer = new IntersectionObserver(
+          () => {
+            updateFromScroll();
+          },
+          {
+            root: null,
+            rootMargin: "-45% 0px -45% 0px",
+            threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+          }
+        );
+
+        targets.forEach((target) => observer.observe(target.section));
+        window.addEventListener("scroll", updateFromScroll, {
+          passive: true,
+        });
+        window.addEventListener("resize", updateFromScroll);
+        window.addEventListener("hashchange", updateFromScroll);
+
+        return () => {
+          observer.disconnect();
+          window.removeEventListener("scroll", updateFromScroll);
+          window.removeEventListener("resize", updateFromScroll);
+          window.removeEventListener("hashchange", updateFromScroll);
+        };
+      };
+
+      const initMobileMenu = () => {
+        const nav = document.querySelector(".mobile-nav");
+        if (!nav) {
+          return null;
+        }
+
+        const toggleButton = nav.querySelector("[data-mobile-nav-toggle]");
+        const panel = nav.querySelector(".mobile-nav-panel");
+
+        if (!toggleButton || !panel) {
+          return null;
+        }
+
+        panel.querySelectorAll(".mobile-nav-filler").forEach((filler) => {
+          filler.remove();
+        });
+
+        const gridItems = Array.from(
+          panel.querySelectorAll(".mobile-nav-link, .nav-controls.mobile")
+        );
+        const gridSize = Math.max(1, Math.ceil(Math.sqrt(gridItems.length)));
+        panel.style.setProperty("--mobile-nav-grid-size", String(gridSize));
+
+        const totalCells = gridSize * gridSize;
+        const fillersNeeded = totalCells - gridItems.length;
+        for (let i = 0; i < fillersNeeded; i += 1) {
+          const filler = document.createElement("span");
+          filler.className = "mobile-nav-filler";
+          filler.setAttribute("aria-hidden", "true");
+          panel.appendChild(filler);
+        }
+
+        const setOpen = (isOpen) => {
+          nav.classList.toggle("is-open", isOpen);
+          toggleButton.setAttribute("aria-expanded", String(isOpen));
+        };
+
+        const handleToggle = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setOpen(!nav.classList.contains("is-open"));
+        };
+
+        const handleOutsideClick = (event) => {
+          if (!nav.contains(event.target)) {
+            setOpen(false);
+          }
+        };
+
+        const handleKeydown = (event) => {
+          if (event.key === "Escape") {
+            setOpen(false);
+          }
+        };
+
+        const closeMenu = () => setOpen(false);
+        const links = Array.from(nav.querySelectorAll(".mobile-nav-link"));
+
+        setOpen(false);
+        toggleButton.addEventListener("click", handleToggle);
+        document.addEventListener("click", handleOutsideClick);
+        document.addEventListener("keydown", handleKeydown);
+        links.forEach((link) => link.addEventListener("click", closeMenu));
+
+        return () => {
+          toggleButton.removeEventListener("click", handleToggle);
+          document.removeEventListener("click", handleOutsideClick);
+          document.removeEventListener("keydown", handleKeydown);
+          links.forEach((link) => link.removeEventListener("click", closeMenu));
+          panel.querySelectorAll(".mobile-nav-filler").forEach((filler) => {
+            filler.remove();
+          });
+          panel.style.removeProperty("--mobile-nav-grid-size");
+        };
+      };
+
+      const refreshScrollSpy = () => {
+        if (cleanupScrollSpy) {
+          cleanupScrollSpy();
+        }
+        cleanupScrollSpy = initScrollSpy();
+      };
+
+      const refreshMobileMenu = () => {
+        if (cleanupMobileMenu) {
+          cleanupMobileMenu();
+        }
+        cleanupMobileMenu = initMobileMenu();
+      };
+
+      const setupScrollSpy = () => {
+        refreshScrollSpy();
+        refreshMobileMenu();
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setupScrollSpy, {
+          once: true,
+        });
+      } else {
+        setupScrollSpy();
+      }
+      document.addEventListener("astro:after-swap", refreshScrollSpy);
+      document.addEventListener("astro:after-swap", refreshMobileMenu);
     })();
   </script>
 </header>

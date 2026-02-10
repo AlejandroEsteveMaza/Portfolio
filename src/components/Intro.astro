@@ -1,20 +1,40 @@
 ---
 import "../styles/intro.css";
-import { MagneticParticles } from "./ui/magnetic-particles";
+import { AmbientParticles } from "./ui/ambient-particles";
 import { SkillsMarquee } from "./ui/skills-marquee";
 
 const { copy } = Astro.props;
 ---
 <section id="home" class="intro-section">
   <div class="intro-particles" aria-hidden="true">
-    <MagneticParticles client:load className="intro-particles-canvas" />
+    <AmbientParticles client:load className="intro-particles-canvas" />
   </div>
   <div class="intro-top">
     <div class="intro-title">
+      <div class="intro-status">
+        <img
+          class="intro-status-avatar"
+          src="/images/yo.jpg"
+          alt="Portrait of Alejandro Esteve Maza"
+          loading="eager"
+        />
+        <a class="intro-status-button" href={copy.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>
+          {copy.intro.cta}
+        </a>
+      </div>
       <h1>{copy.intro.title}</h1>
       <p class="intro-p" set:html={copy.intro.subtitle}></p>
-      <p class="intro-cta">{copy.intro.cta}</p>
       <ul class="intro-ul">
+        <li>
+          <a
+            class="intro-links intro-links-mail"
+            href="mailto:alex.esteve98@gmail.com"
+            aria-label={copy.contact.emailLabel}
+          >
+            <i class="bx bx-sm bxs-envelope"></i>
+            <span>{copy.intro.contactAction}</span>
+          </a>
+        </li>
         <li>
           <a
             class="intro-links"
@@ -23,7 +43,8 @@ const { copy } = Astro.props;
             rel="noreferrer noopener"
             aria-label="LinkedIn"
           >
-            <i class="bx bx-md bxl-linkedin-square"></i>
+            <i class="bx bx-sm bxl-linkedin-square"></i>
+            <span>LinkedIn</span>
           </a>
         </li>
         <li>
@@ -34,17 +55,12 @@ const { copy } = Astro.props;
             rel="noreferrer noopener"
             aria-label="GitHub"
           >
-            <i class="bx bx-md bxl-github"></i>
+            <i class="bx bx-sm bxl-github"></i>
+            <span>GitHub</span>
           </a>
         </li>
       </ul>
     </div>
-    <img
-      class="intro-img"
-      src="/images/yo.jpg"
-      alt="Portrait of Alejandro Esteve Maza"
-      loading="lazy"
-    />
   </div>
   <div class="intro-skills">
     <div>

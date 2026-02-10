@@ -1,10 +1,14 @@
 .Footer {
-  height: 6.5rem;
+  min-height: 6.5rem;
   width: 100%;
   background: linear-gradient(to right, var(--footer-start), var(--purple));
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  flex-wrap: wrap;
   transition: background-color 300ms ease;
 }
 
@@ -14,20 +18,37 @@
   font-weight: 400;
 }
 
+.Footer-contact {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 250ms ease, border-color 250ms ease;
+}
+
+.Footer-contact:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
 @media only screen and (max-width: 750px) {
-  .Footer {
-    height: 5.5rem;
-  }
   .Footer p {
     font-size: 0.8rem;
+  }
+  .Footer-contact {
+    font-size: 0.78rem;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .Footer {
-    height: 4.5rem;
-  }
   .Footer p {
     font-size: 0.6rem;
+  }
+  .Footer-contact {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.68rem;
   }
 }

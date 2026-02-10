@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --purple: rgb(84, 37, 179);
+  --purple-rgb: 84, 37, 179;
+  --purple: rgb(var(--purple-rgb));
   --blue: rgb(17, 37, 218);
   --text: rgb(37, 37, 37);
   --background: #ffffff;
@@ -13,6 +14,14 @@
   --border: rgba(146, 161, 176, 0.15);
   --header-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
   --footer-start: rgb(37, 37, 37);
+  --section-padding-y-desktop: 6rem;
+  --section-padding-y-tablet: 5rem;
+  --section-padding-y-mobile: 3.75rem;
+  --section-padding-x-desktop: clamp(1.5rem, 8vw, 11rem);
+  --section-padding-x-tablet: clamp(1.25rem, 5vw, 4rem);
+  --section-padding-x-mobile: 1.25rem;
+  --section-title-gap-desktop: 2.75rem;
+  --section-title-gap-mobile: 2rem;
   color-scheme: light;
 }
 
@@ -21,13 +30,16 @@ html.light {
 }
 
 html.dark {
+  --purple-rgb: 169, 140, 255;
+  --purple: rgb(var(--purple-rgb));
+  --blue: rgb(117, 143, 255);
   --text: rgb(231, 234, 240);
   --background: #0f1115;
-  --surface: #151a22;
-  --surface-muted: #11151d;
-  --surface-soft: #171c25;
-  --border: rgba(255, 255, 255, 0.08);
-  --header-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  --surface: #1a2230;
+  --surface-muted: #141b28;
+  --surface-soft: #202938;
+  --border: rgba(169, 140, 255, 0.22);
+  --header-shadow: 0 1px 0 rgba(169, 140, 255, 0.2);
   --footer-start: #0b0d12;
   color-scheme: dark;
 }

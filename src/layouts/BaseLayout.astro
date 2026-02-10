@@ -38,6 +38,45 @@ const {
         root.classList.add(theme);
       })();
     </script>
+    <script is:inline>
+      (() => {
+        const storageKey = "preferred-language";
+        const path = window.location.pathname;
+        const isRootPath = path === "/" || path === "/index.html";
+        const isEnglishPath = path === "/en/" || path === "/en/index.html";
+
+        if (!isRootPath && !isEnglishPath) {
+          return;
+        }
+
+        const stored = localStorage.getItem(storageKey);
+        const browserLang =
+          (navigator.languages && navigator.languages[0]) ||
+          navigator.language ||
+          "es";
+        const normalizedBrowser = browserLang.toLowerCase();
+
+        const target =
+          stored === "es" || stored === "en"
+            ? stored
+            : normalizedBrowser.startsWith("es")
+              ? "es"
+              : "en";
+
+        if (isRootPath && target === "en") {
+          window.location.replace(
+            `/en/${window.location.search}${window.location.hash}`
+          );
+          return;
+        }
+
+        if (isEnglishPath && target === "es") {
+          window.location.replace(
+            `/${window.location.search}${window.location.hash}`
+          );
+        }
+      })();
+    </script>
 
     <link rel="canonical" href={url} />
     <link rel="alternate" href={alternateUrl} hreflang={alternateLocale} />

@@ -6,77 +6,88 @@ export const content = {
         'Desarrollador Full Stack en Espana. Creo productos web con React, Java, AWS y bases de datos. Proyectos, experiencia y contacto.',
       jobTitle: 'Desarrollador Full Stack',
     },
-    showProjects: false,
+    showProjects: true,
+    showContact: false,
     nav: {
       home: 'Inicio',
       about: 'Sobre mi',
       projects: 'Proyectos',
-      resume: 'CV',
+      resume: 'Experiencia',
       contact: 'Contacto',
     },
     intro: {
-      title: 'Desarrollador Full Stack.',
+      title: 'Hey, soy Alejandro',
       subtitle:
-        'Hola, soy <strong>Alejandro Esteve Maza</strong>. Desarrollo productos web escalables y orientados a negocio desde Espana.',
-      cta: 'Disponible para nuevos proyectos.',
+        '+7 a&#241;os de experiencia. <strong>Desarrollador y Project Manager</strong> de Valencia, Espa&#241;a &#x1F1EA;&#x1F1F8;. Especializado en el desarrollo de productos web orientados a negocio.',
+      cta: 'Disponible para trabajar',
+      contactAction: 'Contactame',
       skillsTitle: 'Tecnologias',
     },
     about: {
       title: 'Sobre mi',
-      headline: 'Un desarrollador entusiasta',
       body:
-        'Soy <strong>Desarrollador Full Stack</strong> con experiencia en APIs web, sistemas embebidos y soluciones cloud. Transformo ideas en codigo y resuelvo problemas con enfoque pragmatico. En mi tiempo libre leo, hago deporte y disfruto de la naturaleza.',
+        'Me llamo Alejandro Esteve Maza, desarrollador de software especializado en <strong>soluciones a medida</strong>, automatizacion de procesos e inteligencia artificial. Ayudo a founders no tecnicos y empresas a disenar, construir y automatizar software alineado con <strong>objetivos de negocio</strong> reales, reduciendo friccion, incertidumbre tecnica y sobrecostes.<br /><br />Mi enfoque prioriza <strong>resultados</strong>: sistemas eficientes que generan impacto en el negocio. Tambien trabajo como Project Manager, mejorando la organizacion y <strong>productividad</strong> de equipos de desarrollo para lograr entregas sostenibles. Ademas, desarrollo productos propios y aplico <strong>IA</strong> para llevar cada solucion un paso mas alla.',
     },
     projects: {
-      title: 'Proyectos destacados',
+      title: 'Proyectos',
       techLabel: 'Stack utilizado',
+      liveLabel: 'Demo',
+      repoLabel: 'Codigo',
       items: [
         {
-          title: 'Plataforma SaaS de analitica',
+          title: 'GymTimerPro',
           description:
-            'Dashboard con KPIs en tiempo real, autenticacion segura y exportacion de informes para equipos de negocio.',
-          tech: ['React', 'Node', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Dashboard de analitica con graficas',
+            'App para temporizadores de entrenamiento, con bloques de trabajo y descanso configurables.',
+          tech: ['Swift'],
+          image: '/images/Projects/GymTimerPro.png',
+          imageAlt: 'Preview de GymTimerPro',
           liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Sistema de reservas para clinicas',
-          description:
-            'Reservas online con recordatorios, gestion de agenda y panel de administracion.',
-          tech: ['React', 'Java', 'MySQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Panel de reservas medicas',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Ecommerce con integraciones',
-          description:
-            'Catalogo optimizado, pagos seguros y sincronizacion con inventario para mejorar conversiones.',
-          tech: ['React', 'Spring', 'AWS'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Tienda online con productos destacados',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'API para IoT industrial',
-          description:
-            'Servicios de ingestion y monitorizacion para dispositivos conectados, con alertas y trazabilidad.',
-          tech: ['Java', 'AWS', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Panel de monitorizacion industrial',
-          liveUrl: '',
-          repoUrl: '',
+          repoUrl: 'https://github.com/AlejandroEsteveMaza/GymTimerPro',
         },
       ],
     },
     resume: {
-      title: 'Curriculum',
-      download: 'Descargar PDF',
-      previewTitle: 'Vista previa del CV',
+      title: 'Experiencia laboral',
+      items: [
+        {
+          period: '2025 - Actualmente',
+          role: 'Project Manager & Product Engineer',
+          company: 'ED AVIATION',
+          description:
+            'Coordinacion de roadmap de producto, planificacion de entregas y alineacion tecnica con objetivos de negocio.'
+        },
+        {
+          period: '2022 - 2025',
+          role: 'Full-Stack Developer AWS',
+          company: 'VIEWNEXT',
+          description:
+            'Evolucion tecnica en plataforma AWS con foco en calidad de arquitectura, entrega continua y acompanamiento al equipo.',
+          positions: [
+            {
+              role: 'Lider Tecnico Backend AWS',
+              period: '2024 - 2025'
+            },
+            {
+              role: 'Analista Desarrollador AWS',
+              period: '2022 - 2024'
+            }
+          ]
+        },
+        {
+          period: '2020 - 2022',
+          role: 'Full-Stack Developer .NET',
+          company: 'AYDAI',
+          description:
+            'Desarrollo full-stack con stack .NET, integraciones de APIs y mejoras continuas de rendimiento en aplicaciones internas.'
+        },
+        {
+          period: '2018',
+          role: 'Front-End Developer',
+          company: 'Fourvenues',
+          description:
+            'Construccion de interfaces frontend, componentes reutilizables y mejoras de experiencia de usuario en producto web.'
+        }
+      ]
     },
     contact: {
       title: 'Contacto',
@@ -86,7 +97,7 @@ export const content = {
       linkedinLabel: 'LinkedIn',
     },
     footer: {
-      text: 'Creado por Alejandro Esteve Maza | Todos los derechos reservados',
+      text: '© 2026 Alejandro Esteve Maza. Todos los derechos reservados',
     },
   },
   en: {
@@ -96,77 +107,88 @@ export const content = {
         'Full-stack developer in Spain. I build scalable web products with React, Java, AWS, and databases. Projects, experience, and contact.',
       jobTitle: 'Full-Stack Developer',
     },
-    showProjects: false,
+    showProjects: true,
+    showContact: false,
     nav: {
       home: 'Home',
       about: 'About',
       projects: 'Projects',
-      resume: 'Resume',
+      resume: 'Experience',
       contact: 'Contact',
     },
     intro: {
-      title: 'Full-Stack Developer.',
+      title: "Hey, I'm Alejandro",
       subtitle:
         "Hi, I'm <strong>Alejandro Esteve Maza</strong>. I build scalable, business-focused web products from Spain.",
-      cta: 'Open to new projects.',
+      cta: 'Available for work',
+      contactAction: 'Contact me',
       skillsTitle: 'Tech Stack',
     },
     about: {
       title: 'About me',
-      headline: 'An enthusiastic developer',
       body:
-        'I am a <strong>Full-Stack Developer</strong> with experience across web APIs, embedded systems, and cloud solutions. I turn ideas into code and solve problems with a pragmatic mindset. In my free time I read, train, and spend time outdoors.',
+        'My name is Alejandro Esteve Maza.<br /><br />I am a software developer specialized in creating custom solutions aligned with each client real needs. I am passionate about designing and building <strong>automations that remove pain points</strong>, optimize processes, and create direct business impact.<br /><br />I work with <strong>non-technical founders and companies</strong> to design, build, and automate software without unnecessary friction. My approach reduces technical uncertainty, avoids overruns, and prioritizes outcomes: solutions that work and deliver value, not just clean code.<br /><br />Beyond development, I enjoy my role as a <strong>Project Manager</strong>, focused on improving organization, efficiency, and effectiveness across development teams while ensuring clear and sustainable delivery.<br /><br />I also build software independently and, above all, I am excited to <strong>apply artificial intelligence</strong> to boost products, processes, and teams, taking each solution beyond the traditional approach.',
     },
     projects: {
-      title: 'Featured projects',
+      title: 'Projects',
       techLabel: 'Tech used',
+      liveLabel: 'Live',
+      repoLabel: 'Code',
       items: [
         {
-          title: 'Analytics SaaS platform',
+          title: 'GymTimerPro',
           description:
-            'Real-time KPI dashboard, secure authentication, and report exports for business teams.',
-          tech: ['React', 'Node', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Analytics dashboard with charts',
+            'Placeholder text: workout timer app with configurable work/rest intervals and clean mobile UX.',
+          tech: ['Swift'],
+          image: '/images/Projects/GymTimerPro.png',
+          imageAlt: 'GymTimerPro preview',
           liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Clinic booking system',
-          description:
-            'Online bookings with reminders, scheduling management, and an admin dashboard.',
-          tech: ['React', 'Java', 'MySQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Medical booking admin panel',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Ecommerce with integrations',
-          description:
-            'Optimized catalog, secure payments, and inventory sync to improve conversions.',
-          tech: ['React', 'Spring', 'AWS'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Online store product grid',
-          liveUrl: '',
-          repoUrl: '',
-        },
-        {
-          title: 'Industrial IoT API',
-          description:
-            'Ingestion and monitoring services for connected devices, with alerts and traceability.',
-          tech: ['Java', 'AWS', 'PostgreSQL'],
-          image: '/images/SampleImage.png',
-          imageAlt: 'Industrial monitoring dashboard',
-          liveUrl: '',
-          repoUrl: '',
+          repoUrl: 'https://github.com/AlejandroEsteveMaza/GymTimerPro',
         },
       ],
     },
     resume: {
-      title: 'Resume',
-      download: 'Download PDF',
-      previewTitle: 'Resume preview',
+      title: 'Work experience',
+      items: [
+        {
+          period: '2025 - Actualmente',
+          role: 'Project Manager & Product Engineer',
+          company: 'ED AVIATION',
+          description:
+            'Placeholder text: product roadmap coordination, delivery planning, and technical alignment with business goals.'
+        },
+        {
+          period: '2022 - 2025',
+          role: 'AWS track',
+          company: 'VIEWNEXT',
+          description:
+            'Placeholder text: AWS-focused progression with architecture ownership, delivery quality, and technical leadership.',
+          positions: [
+            {
+              role: 'Backend Tech Lead AWS',
+              period: '2024 - 2025'
+            },
+            {
+              role: 'AWS Developer Analyst',
+              period: '2022 - 2024'
+            }
+          ]
+        },
+        {
+          period: '2020 - 2022',
+          role: 'Full-Stack Developer .NET',
+          company: 'AYDAI',
+          description:
+            'Placeholder text: full-stack development with .NET stack, API integrations, and iterative performance improvements.'
+        },
+        {
+          period: '2018 - 2018',
+          role: 'Front-End Developer',
+          company: 'Fourvenues',
+          description:
+            'Placeholder text: frontend implementation, reusable UI components, and user experience improvements for web products.'
+        }
+      ]
     },
     contact: {
       title: 'Contact',
@@ -176,7 +198,7 @@ export const content = {
       linkedinLabel: 'LinkedIn',
     },
     footer: {
-      text: 'Created by Alejandro Esteve Maza | All rights reserved',
+      text: '© 2026 Alejandro Esteve Maza. All rights reserved',
     },
   },
 };
