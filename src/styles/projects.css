@@ -162,6 +162,18 @@
   transform: translateY(-1px);
 }
 
+html.light .project-link-code {
+  color: #ffffff;
+  background-color: #5b6472;
+  border-color: #495363;
+}
+
+html.light .project-link-code:hover {
+  color: #ffffff;
+  background-color: #4f5866;
+  border-color: #3f4857;
+}
+
 @media only screen and (max-width: 1453px) {
   .Proyects-container {
     padding-inline: var(--section-padding-x-tablet);

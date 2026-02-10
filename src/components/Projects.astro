@@ -2,6 +2,43 @@
 import "../styles/projects.css";
 
 const { copy } = Astro.props;
+
+const APP_LINK_PROTOCOLS = ["mailto:", "tel:", "sms:", "geo:"];
+const APP_LINK_HOSTS = [
+  "linkedin.com",
+  "github.com",
+  "instagram.com",
+  "facebook.com",
+  "x.com",
+  "twitter.com",
+  "youtube.com",
+  "wa.me",
+  "whatsapp.com",
+  "t.me",
+  "telegram.me",
+  "open.spotify.com",
+];
+
+const shouldPreferSameTab = (href = "") => {
+  const normalized = href.trim().toLowerCase();
+  if (!normalized) {
+    return false;
+  }
+
+  if (APP_LINK_PROTOCOLS.some((protocol) => normalized.startsWith(protocol))) {
+    return true;
+  }
+
+  try {
+    const url = new URL(href);
+    const host = url.hostname.toLowerCase().replace(/^www\./, "");
+    return APP_LINK_HOSTS.some(
+      (domain) => host === domain || host.endsWith(`.${domain}`)
+    );
+  } catch {
+    return false;
+  }
+};
 ---
 <section id="projects" class="Proyects-container">
   <div class="Proyects-title">
@@ -10,14 +47,20 @@ const { copy } = Astro.props;
   <div class="Projects-list">
     {copy.projects.items.map((project, index) => {
       const hasLinks = Boolean(project.liveUrl || project.repoUrl);
+      const liveInNewTab = project.liveUrl
+        ? !shouldPreferSameTab(project.liveUrl)
+        : false;
+      const repoInNewTab = project.repoUrl
+        ? !shouldPreferSameTab(project.repoUrl)
+        : false;
       return (
         <article class={`project-row ${index % 2 !== 0 ? "project-row-reverse" : ""}`}>
           {project.liveUrl ? (
             <a
               class="project-visual"
               href={project.liveUrl}
-              target="_blank"
-              rel="noreferrer noopener"
+              target={liveInNewTab ? "_blank" : undefined}
+              rel={liveInNewTab ? "noreferrer noopener" : undefined}
               aria-label={`${project.title} live`}
             >
               <img class="project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
@@ -45,10 +88,10 @@ const { copy } = Astro.props;
               <div class="project-links">
                 {project.repoUrl && (
                   <a
-                    class="project-link"
+                    class="project-link project-link-code"
                     href={project.repoUrl}
-                    target="_blank"
-                    rel="noreferrer noopener"
+                    target={repoInNewTab ? "_blank" : undefined}
+                    rel={repoInNewTab ? "noreferrer noopener" : undefined}
                     aria-label={`${project.title} repository`}
                   >
                     <i class="bx bx-sm bxl-github"></i>
@@ -59,8 +102,8 @@ const { copy } = Astro.props;
                   <a
                     class="project-link"
                     href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer noopener"
+                    target={liveInNewTab ? "_blank" : undefined}
+                    rel={liveInNewTab ? "noreferrer noopener" : undefined}
                     aria-label={`${project.title} live`}
                   >
                     <i class="bx bx-sm bx-link-alt"></i>
