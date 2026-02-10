@@ -77,6 +77,83 @@ const {
         }
       })();
     </script>
+    <script is:inline>
+      (() => {
+        const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+        if (!isMobile) {
+          return;
+        }
+
+        const bindLinkedinLinks = () => {
+          const links = document.querySelectorAll("a[data-linkedin-app]");
+
+          links.forEach((link) => {
+            if (link.dataset.linkedinBound === "true") {
+              return;
+            }
+            link.dataset.linkedinBound = "true";
+
+            link.addEventListener("click", (event) => {
+              if (
+                event.defaultPrevented ||
+                event.button !== 0 ||
+                event.metaKey ||
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.altKey
+              ) {
+                return;
+              }
+
+              const appUrl = link.dataset.linkedinApp;
+              const webUrl = link.dataset.linkedinWeb || link.href;
+              if (!appUrl || !webUrl) {
+                return;
+              }
+
+              event.preventDefault();
+
+              let pageHidden = false;
+              let fallbackTimer;
+              const onVisibility = () => {
+                if (document.visibilityState === "hidden") {
+                  pageHidden = true;
+                }
+              };
+
+              document.addEventListener("visibilitychange", onVisibility, {
+                passive: true,
+              });
+
+              fallbackTimer = window.setTimeout(() => {
+                document.removeEventListener("visibilitychange", onVisibility);
+                if (!pageHidden) {
+                  window.location.href = webUrl;
+                }
+              }, 900);
+
+              try {
+                window.location.href = appUrl;
+              } catch {
+                window.clearTimeout(fallbackTimer);
+                document.removeEventListener("visibilitychange", onVisibility);
+                window.location.href = webUrl;
+              }
+            });
+          });
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", bindLinkedinLinks, {
+            once: true,
+          });
+        } else {
+          bindLinkedinLinks();
+        }
+
+        document.addEventListener("astro:after-swap", bindLinkedinLinks);
+      })();
+    </script>
 
     <link rel="canonical" href={url} />
     <link rel="alternate" href={alternateUrl} hreflang={alternateLocale} />
