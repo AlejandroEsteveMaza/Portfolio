@@ -1,3 +1,11 @@
+const PROJECT_LINKS = Object.freeze({
+  gymtimerpro: Object.freeze({
+    previewUrl: 'https://apps.apple.com/es/app/gym-timer-pro/id6757653183',
+    previewKind: 'appStore',
+    repoUrl: 'https://github.com/AlejandroEsteveMaza/GymTimerPro',
+  }),
+});
+
 export const content = {
   es: {
     meta: {
@@ -31,7 +39,8 @@ export const content = {
     projects: {
       title: 'Proyectos',
       techLabel: 'Stack utilizado',
-      liveLabel: 'Demo',
+      previewLabel: 'Vista previa',
+      appStoreLabel: 'Descargar en App Store',
       repoLabel: 'Codigo',
       items: [
         {
@@ -41,8 +50,7 @@ export const content = {
           tech: ['Swift'],
           image: '/images/Projects/GymTimerPro.png',
           imageAlt: 'Preview de GymTimerPro',
-          liveUrl: '',
-          repoUrl: 'https://github.com/AlejandroEsteveMaza/GymTimerPro',
+          ...PROJECT_LINKS.gymtimerpro,
         },
       ],
     },
@@ -132,7 +140,8 @@ export const content = {
     projects: {
       title: 'Projects',
       techLabel: 'Tech used',
-      liveLabel: 'Live',
+      previewLabel: 'Preview',
+      appStoreLabel: 'Download on the App Store',
       repoLabel: 'Code',
       items: [
         {
@@ -142,8 +151,7 @@ export const content = {
           tech: ['Swift'],
           image: '/images/Projects/GymTimerPro.png',
           imageAlt: 'GymTimerPro preview',
-          liveUrl: '',
-          repoUrl: 'https://github.com/AlejandroEsteveMaza/GymTimerPro',
+          ...PROJECT_LINKS.gymtimerpro,
         },
       ],
     },

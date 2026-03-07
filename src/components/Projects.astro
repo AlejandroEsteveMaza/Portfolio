@@ -46,22 +46,27 @@ const shouldPreferSameTab = (href = "") => {
   </div>
   <div class="Projects-list">
     {copy.projects.items.map((project, index) => {
-      const hasLinks = Boolean(project.liveUrl || project.repoUrl);
-      const liveInNewTab = project.liveUrl
-        ? !shouldPreferSameTab(project.liveUrl)
+      const previewUrl = project.previewUrl || project.liveUrl || "";
+      const isAppStorePreview = project.previewKind === "appStore";
+      const previewLabel = isAppStorePreview
+        ? copy.projects.appStoreLabel
+        : copy.projects.previewLabel || copy.projects.liveLabel;
+      const hasLinks = Boolean(previewUrl || project.repoUrl);
+      const previewInNewTab = previewUrl
+        ? !shouldPreferSameTab(previewUrl)
         : false;
       const repoInNewTab = project.repoUrl
         ? !shouldPreferSameTab(project.repoUrl)
         : false;
       return (
         <article class={`project-row ${index % 2 !== 0 ? "project-row-reverse" : ""}`}>
-          {project.liveUrl ? (
+          {previewUrl ? (
             <a
               class="project-visual"
-              href={project.liveUrl}
-              target={liveInNewTab ? "_blank" : undefined}
-              rel={liveInNewTab ? "noreferrer noopener" : undefined}
-              aria-label={`${project.title} live`}
+              href={previewUrl}
+              target={previewInNewTab ? "_blank" : undefined}
+              rel={previewInNewTab ? "noreferrer noopener" : undefined}
+              aria-label={`${project.title} ${previewLabel}`}
             >
               <img class="project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
             </a>
@@ -88,7 +93,7 @@ const shouldPreferSameTab = (href = "") => {
               <div class="project-links">
                 {project.repoUrl && (
                   <a
-                    class="project-link project-link-code"
+                    class="project-link"
                     href={project.repoUrl}
                     target={repoInNewTab ? "_blank" : undefined}
                     rel={repoInNewTab ? "noreferrer noopener" : undefined}
@@ -98,16 +103,16 @@ const shouldPreferSameTab = (href = "") => {
                     <span>{copy.projects.repoLabel}</span>
                   </a>
                 )}
-                {project.liveUrl && (
+                {previewUrl && (
                   <a
                     class="project-link"
-                    href={project.liveUrl}
-                    target={liveInNewTab ? "_blank" : undefined}
-                    rel={liveInNewTab ? "noreferrer noopener" : undefined}
-                    aria-label={`${project.title} live`}
+                    href={previewUrl}
+                    target={previewInNewTab ? "_blank" : undefined}
+                    rel={previewInNewTab ? "noreferrer noopener" : undefined}
+                    aria-label={`${project.title} ${previewLabel}`}
                   >
                     <i class="bx bx-sm bx-link-alt"></i>
-                    <span>{copy.projects.liveLabel}</span>
+                    <span>{previewLabel}</span>
                   </a>
                 )}
               </div>
