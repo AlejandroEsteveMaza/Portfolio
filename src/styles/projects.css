@@ -162,16 +162,13 @@
   transform: translateY(-1px);
 }
 
-html.light .project-link-code {
-  color: #ffffff;
-  background-color: #5b6472;
-  border-color: #495363;
+html.light .project-link {
+  background-color: var(--surface-soft);
+  border-color: color-mix(in srgb, #b7c0ce 48%, var(--border) 52%);
 }
 
-html.light .project-link-code:hover {
-  color: #ffffff;
-  background-color: #4f5866;
-  border-color: #3f4857;
+html.light .project-link:hover {
+  background-color: color-mix(in srgb, var(--surface-soft) 84%, #d7dde7 16%);
 }
 
 @media only screen and (max-width: 1453px) {
