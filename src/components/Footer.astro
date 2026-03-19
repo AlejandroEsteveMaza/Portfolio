@@ -1,11 +1,15 @@
 ---
 import "../styles/footer.css";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getSiteData } from '../i18n/data';
 
-const { copy } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const data = getSiteData(lang);
 ---
 <footer class="Footer">
-  <p>{copy.footer.text}</p>
-  <a class="Footer-contact" href={copy.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>
-    {copy.nav.contact}
+  <p>{t('footer.text')}</p>
+  <a class="Footer-contact" href={data.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>
+    {t('nav.contact')}
   </a>
 </footer>

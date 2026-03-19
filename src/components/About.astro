@@ -1,11 +1,13 @@
 ---
 import "../styles/about.css";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const { copy } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <section id="about" class="About-container">
   <div class="About-title">
-    <h2>{copy.about.title}</h2>
+    <h2>{t('about.title')}</h2>
   </div>
   <img
     class="About-image About-image-mobile"
@@ -21,7 +23,7 @@ const { copy } = Astro.props;
         alt="Alejandro Esteve Maza portrait"
         loading="lazy"
       />
-      <p set:html={copy.about.body}></p>
+      <p set:html={t('about.body')}></p>
     </div>
   </div>
 </section>

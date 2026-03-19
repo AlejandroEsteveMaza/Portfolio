@@ -1,16 +1,18 @@
 ---
 import "../styles/contact.css";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const { copy } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <section id="contact" class="Contact-container">
-  <h2 class="Contact-title">{copy.contact.title}</h2>
-  <h3 class="Contact-subtitle">{copy.contact.subtitle}</h3>
+  <h2 class="Contact-title">{t('contact.title')}</h2>
+  <h3 class="Contact-subtitle">{t('contact.subtitle')}</h3>
   <div class="Contact-card">
     <div class="Contact-link">
       <a
         href="mailto:alex.esteve98@gmail.com"
-        aria-label={copy.contact.emailLabel}
+        aria-label={t('contact.emailLabel')}
       >
         <i class="bx bx-md bxs-envelope"></i>
       </a>
@@ -21,7 +23,7 @@ const { copy } = Astro.props;
         href="https://www.linkedin.com/in/alejandro-esteve-maza/"
         data-linkedin-app="linkedin://in/alejandro-esteve-maza/"
         data-linkedin-web="https://www.linkedin.com/in/alejandro-esteve-maza/"
-        aria-label={copy.contact.linkedinLabel}
+        aria-label={t('contact.linkedinLabel')}
       >
         <i class="bx bx-md bxl-linkedin-square"></i>
       </a>

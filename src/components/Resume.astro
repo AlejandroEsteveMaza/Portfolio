@@ -1,14 +1,18 @@
 ---
 import "../styles/resume.css";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getSiteData } from '../i18n/data';
 
-const { copy } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { resume } = getSiteData(lang);
 ---
 <section id="experience" class="Resume-container">
   <div class="Resume-title">
-    <h2>{copy.resume.title}</h2>
+    <h2>{t('resume.title')}</h2>
   </div>
   <ol class="Resume-timeline">
-    {copy.resume.items.map((item) => (
+    {resume.items.map((item) => (
       <li class="Resume-item">
         <span class="Resume-dot" aria-hidden="true"></span>
         <article class="Resume-card">
