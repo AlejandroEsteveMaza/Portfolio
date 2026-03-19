@@ -1,14 +1,19 @@
 ---
 import "../styles/header.css";
+import LangPicker from './LangPicker.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getSiteData } from '../i18n/data';
 
-const { lang, copy } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const data = getSiteData(lang);
 ---
 <header class="header">
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <button
       class="mobile-nav-toggle"
       type="button"
-      aria-label={lang === "es" ? "Abrir menu" : "Open menu"}
+      aria-label={t('a11y.openMenu')}
       aria-controls="mobile-nav-panel"
       aria-expanded="false"
       data-mobile-nav-toggle
@@ -18,18 +23,19 @@ const { lang, copy } = Astro.props;
       <span class="mobile-nav-toggle-bar"></span>
     </button>
     <div id="mobile-nav-panel" class="mobile-nav-panel">
-      {copy.showProjects && <a class="mobile-nav-link" href="#projects">{copy.nav.projects}</a>}
-      <a class="mobile-nav-link" href="#experience">{copy.nav.resume}</a>
-      <a class="mobile-nav-link" href="#about">{copy.nav.about}</a>
-      <a class="mobile-nav-link" href={copy.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>{copy.nav.contact}</a>
-      <div class="nav-controls mobile" aria-label={lang === "es" ? "Idioma y tema" : "Language and theme"}>
+      {data.showProjects && <a class="mobile-nav-link" href="#projects">{t('nav.projects')}</a>}
+      <a class="mobile-nav-link" href="#experience">{t('nav.resume')}</a>
+      <a class="mobile-nav-link" href="#about">{t('nav.about')}</a>
+      <a class="mobile-nav-link" href={data.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>{t('nav.contact')}</a>
+      <div class="nav-controls mobile" aria-label={t('a11y.langAndTheme')}>
+        <LangPicker />
         <button
-          class="theme-toggle"
+          class="nav-icon-btn theme-toggle"
           type="button"
           data-theme-toggle
-          data-label-light={lang === "es" ? "Activar modo claro" : "Switch to light mode"}
-          data-label-dark={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
-          aria-label={lang === "es" ? "Activar modo oscuro" : "Switch to dark mode"}
+          data-label-light={t('a11y.lightMode')}
+          data-label-dark={t('a11y.darkMode')}
+          aria-label={t('a11y.darkMode')}
           aria-pressed="false"
         >
           <span class="theme-icon icon-sun" aria-hidden="true">

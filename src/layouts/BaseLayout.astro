@@ -1,10 +1,11 @@
 ---
 import "../styles/global.css";
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+import { languages, defaultLang } from '../i18n/config';
 
 const {
   title,
   description,
-  lang,
   url,
   image,
   jsonLd,
@@ -12,9 +13,15 @@ const {
   alternateLocale,
   alternateUrl,
 } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+
+const langPaths = Object.fromEntries(
+  Object.keys(languages).map((l) => [l, useTranslatedPath(l as keyof typeof languages)('/')])
+);
 ---
 <!doctype html>
-<html lang={lang} class="light">
+<html lang={lang} class="light" data-default-lang={defaultLang} data-lang-paths={JSON.stringify(langPaths)}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,38 +48,28 @@ const {
     <script is:inline>
       (() => {
         const storageKey = "preferred-language";
-        const path = window.location.pathname;
-        const isRootPath = path === "/" || path === "/index.html";
-        const isEnglishPath = path === "/en/" || path === "/en/index.html";
+        const html = document.documentElement;
+        const defaultLang = html.dataset.defaultLang || "es";
+        const langPaths = JSON.parse(html.dataset.langPaths || "{}");
+        const langCodes = Object.keys(langPaths);
 
-        if (!isRootPath && !isEnglishPath) {
-          return;
-        }
+        const path = window.location.pathname;
+        const currentLang = langCodes.find((l) => {
+          const p = langPaths[l];
+          return p === "/" ? path === "/" || path === "/index.html" : path.startsWith(p);
+        }) || defaultLang;
 
         const stored = localStorage.getItem(storageKey);
-        const browserLang =
-          (navigator.languages && navigator.languages[0]) ||
-          navigator.language ||
-          "es";
+        const browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || defaultLang;
         const normalizedBrowser = browserLang.toLowerCase();
 
-        const target =
-          stored === "es" || stored === "en"
-            ? stored
-            : normalizedBrowser.startsWith("es")
-              ? "es"
-              : "en";
+        const target = langCodes.includes(stored)
+          ? stored
+          : langCodes.find((l) => normalizedBrowser.startsWith(l)) || defaultLang;
 
-        if (isRootPath && target === "en") {
+        if (target !== currentLang) {
           window.location.replace(
-            `/en/${window.location.search}${window.location.hash}`
-          );
-          return;
-        }
-
-        if (isEnglishPath && target === "es") {
-          window.location.replace(
-            `/${window.location.search}${window.location.hash}`
+            langPaths[target] + window.location.search + window.location.hash
           );
         }
       })();

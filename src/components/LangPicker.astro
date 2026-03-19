@@ -1,0 +1,55 @@
+---
+import { languages, type Lang } from '../i18n/config';
+import { getLangFromUrl, useTranslatedPath, getRouteFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const route = getRouteFromUrl(Astro.url);
+
+const otherLang = (Object.keys(languages) as Lang[]).find(l => l !== lang)!;
+const otherPath = useTranslatedPath(otherLang)(route ? `/${route}` : '/');
+const otherLabel = languages[otherLang];
+---
+<a
+  href={otherPath}
+  class="nav-icon-btn lang-toggle"
+  aria-label={`Switch to ${otherLabel}`}
+  data-lang={otherLang}
+>
+  <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="2" y1="12" x2="22" y2="12"></line>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+  </svg>
+  <span class="lang-code">{otherLang.toUpperCase()}</span>
+</a>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.lang-toggle[data-lang]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const code = link.dataset.lang;
+      if (code) localStorage.setItem('preferred-language', code);
+    });
+  });
+</script>
+
+<style>
+  .lang-toggle {
+    padding: 0 0.7rem;
+    gap: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .lang-icon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+</style>

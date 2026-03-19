@@ -2,8 +2,12 @@
 import "../styles/intro.css";
 import { AmbientParticles } from "./ui/ambient-particles";
 import { SkillsMarquee } from "./ui/skills-marquee";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getSiteData } from '../i18n/data';
 
-const { copy } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const data = getSiteData(lang);
 ---
 <section id="home" class="intro-section">
   <div class="intro-particles" aria-hidden="true">
@@ -18,21 +22,21 @@ const { copy } = Astro.props;
           alt="Portrait of Alejandro Esteve Maza"
           loading="eager"
         />
-        <a class="intro-status-button" href={copy.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>
-          {copy.intro.cta}
+        <a class="intro-status-button" href={data.showContact ? "#contact" : "mailto:alex.esteve98@gmail.com"}>
+          {t('intro.cta')}
         </a>
       </div>
-      <h1>{copy.intro.title}</h1>
-      <p class="intro-p" set:html={copy.intro.subtitle}></p>
+      <h1>{t('intro.title')}</h1>
+      <p class="intro-p" set:html={t('intro.subtitle')}></p>
       <ul class="intro-ul">
         <li>
           <a
             class="intro-links intro-links-mail"
             href="mailto:alex.esteve98@gmail.com"
-            aria-label={copy.contact.emailLabel}
+            aria-label={t('contact.emailLabel')}
           >
             <i class="bx bx-sm bxs-envelope"></i>
-            <span>{copy.intro.contactAction}</span>
+            <span>{t('intro.contactAction')}</span>
           </a>
         </li>
         <li>
@@ -62,7 +66,7 @@ const { copy } = Astro.props;
   </div>
   <div class="intro-skills">
     <div>
-      <h3>{copy.intro.skillsTitle}</h3>
+      <h3>{t('intro.skillsTitle')}</h3>
     </div>
     <SkillsMarquee />
   </div>

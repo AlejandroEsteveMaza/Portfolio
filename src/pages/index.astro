@@ -7,10 +7,14 @@ import Projects from "../components/Projects.astro";
 import Resume from "../components/Resume.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
-import { content } from "../content/site";
+import { defaultLang } from "../i18n/config";
+import { useTranslations } from "../i18n/utils";
+import { getSiteData } from "../i18n/data";
 
-const lang = "es";
-const copy = content[lang];
+const lang = defaultLang;
+const t = useTranslations(lang);
+const data = getSiteData(lang);
+
 const baseUrl = "https://alejandro-esteve.com";
 const url = `${baseUrl}/`;
 const image = `${baseUrl}/images/yo.jpg`;
@@ -25,50 +29,49 @@ const jsonLd = {
       "@type": "Person",
       "@id": `${baseUrl}/#person`,
       name: "Alejandro Esteve Maza",
-      jobTitle: copy.meta.jobTitle,
+      jobTitle: t("meta.jobTitle"),
       url: baseUrl,
       image,
       sameAs: [
         "https://www.linkedin.com/in/alejandro-esteve-maza/",
-        "https://github.com/AlejandroEsteveMaza"
+        "https://github.com/AlejandroEsteveMaza",
       ],
-      knowsAbout: ["React", "Java", "Spring", "AWS", "PostgreSQL", "MySQL"]
+      knowsAbout: ["React", "Java", "Spring", "AWS", "PostgreSQL", "MySQL"],
     },
     {
       "@type": "WebSite",
       "@id": `${baseUrl}/#website`,
       url: baseUrl,
-      name: copy.meta.title,
-      description: copy.meta.description,
+      name: t("meta.title"),
+      description: t("meta.description"),
       inLanguage: ["es", "en"],
-      publisher: { "@id": `${baseUrl}/#person` }
+      publisher: { "@id": `${baseUrl}/#person` },
     },
     {
       "@type": "WebPage",
       "@id": `${url}#webpage`,
       url,
-      name: copy.meta.title,
-      description: copy.meta.description,
+      name: t("meta.title"),
+      description: t("meta.description"),
       inLanguage: lang,
       isPartOf: { "@id": `${baseUrl}/#website` },
-      about: { "@id": `${baseUrl}/#person` }
+      about: { "@id": `${baseUrl}/#person` },
     },
-    ...copy.projects.items.map((project, index) => ({
+    ...data.projects.items.map((project, index) => ({
       "@type": "CreativeWork",
       "@id": `${url}#project-${index + 1}`,
       name: project.title,
       description: project.description,
       url: `${url}#projects`,
       inLanguage: lang,
-      creator: { "@id": `${baseUrl}/#person` }
-    }))
-  ]
+      creator: { "@id": `${baseUrl}/#person` },
+    })),
+  ],
 };
 ---
 <BaseLayout
-  title={copy.meta.title}
-  description={copy.meta.description}
-  lang={lang}
+  title={t("meta.title")}
+  description={t("meta.description")}
   url={url}
   image={image}
   jsonLd={jsonLd}
@@ -76,13 +79,13 @@ const jsonLd = {
   alternateLocale={alternateLocale}
   alternateUrl={alternateUrl}
 >
-  <Header lang={lang} copy={copy} />
+  <Header />
   <main>
-    <Intro copy={copy} />
-    {copy.showProjects && <Projects copy={copy} />}
-    <Resume copy={copy} />
-    <About copy={copy} />
-    {copy.showContact && <Contact copy={copy} />}
+    <Intro />
+    {data.showProjects && <Projects />}
+    <Resume />
+    <About />
+    {data.showContact && <Contact />}
   </main>
-  <Footer copy={copy} />
+  <Footer />
 </BaseLayout>

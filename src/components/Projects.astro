@@ -1,7 +1,11 @@
 ---
 import "../styles/projects.css";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getSiteData } from '../i18n/data';
 
-const { copy } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { projects } = getSiteData(lang);
 
 const APP_LINK_PROTOCOLS = ["mailto:", "tel:", "sms:", "geo:"];
 const APP_LINK_HOSTS = [
@@ -42,22 +46,18 @@ const shouldPreferSameTab = (href = "") => {
 ---
 <section id="projects" class="Proyects-container">
   <div class="Proyects-title">
-    <h2>{copy.projects.title}</h2>
+    <h2>{t('projects.title')}</h2>
   </div>
   <div class="Projects-list">
-    {copy.projects.items.map((project, index) => {
-      const previewUrl = project.previewUrl || project.liveUrl || "";
+    {projects.items.map((project, index) => {
+      const previewUrl = project.previewUrl || "";
       const isAppStorePreview = project.previewKind === "appStore";
       const previewLabel = isAppStorePreview
-        ? copy.projects.appStoreLabel
-        : copy.projects.previewLabel || copy.projects.liveLabel;
+        ? t('projects.appStoreLabel')
+        : t('projects.previewLabel');
       const hasLinks = Boolean(previewUrl || project.repoUrl);
-      const previewInNewTab = previewUrl
-        ? !shouldPreferSameTab(previewUrl)
-        : false;
-      const repoInNewTab = project.repoUrl
-        ? !shouldPreferSameTab(project.repoUrl)
-        : false;
+      const previewInNewTab = previewUrl ? !shouldPreferSameTab(previewUrl) : false;
+      const repoInNewTab = project.repoUrl ? !shouldPreferSameTab(project.repoUrl) : false;
       return (
         <article class={`project-row ${index % 2 !== 0 ? "project-row-reverse" : ""}`}>
           {previewUrl ? (
@@ -100,7 +100,7 @@ const shouldPreferSameTab = (href = "") => {
                     aria-label={`${project.title} repository`}
                   >
                     <i class="bx bx-sm bxl-github"></i>
-                    <span>{copy.projects.repoLabel}</span>
+                    <span>{t('projects.repoLabel')}</span>
                   </a>
                 )}
                 {previewUrl && (
