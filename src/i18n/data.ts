@@ -42,13 +42,13 @@ interface SiteData {
 const siteData: Record<Lang, SiteData> = {
   es: {
     showProjects: true,
-    showContact: false,
+    showContact: true,
     projects: {
       items: [
         {
           title: 'GymTimerPro',
           description:
-            'App para temporizadores de entrenamiento, con bloques de trabajo y descanso configurables.',
+            'Identifique una necesidad real, defini el flujo de producto, desarrolle la app en Swift y la publique en la App Store. Temporizadores de entrenamiento con bloques de trabajo y descanso configurables — de la idea al lanzamiento en produccion.',
           tech: ['Swift'],
           image: '/images/Projects/GymTimerPro.png',
           imageAlt: 'Preview de GymTimerPro',
@@ -63,14 +63,14 @@ const siteData: Record<Lang, SiteData> = {
           role: 'Project Manager & Product Engineer',
           company: 'ED AVIATION',
           description:
-            'Coordinacion de roadmap de producto, planificacion de entregas y alineacion tecnica con objetivos de negocio.',
+            'Liderazgo del roadmap de producto y coordinacion entre negocio y equipo tecnico. Toma de decisiones de arquitectura, priorizacion de entregas y aplicacion de IA para optimizar procesos internos.',
         },
         {
           period: '2022 - 2025',
-          role: 'Full-Stack Developer AWS',
+          role: 'Full-Stack Developer → Tech Lead AWS',
           company: 'VIEWNEXT',
           description:
-            'Evolucion tecnica en plataforma AWS con foco en calidad de arquitectura, entrega continua y acompanamiento al equipo.',
+            'Evolucione de desarrollador a lider tecnico del equipo backend. Meje la calidad de arquitectura en AWS, implante CI/CD y mentorize al equipo para reducir el tiempo de entrega y elevar los estandares tecnicos.',
           positions: [
             { role: 'Lider Tecnico Backend AWS', period: '2024 - 2025' },
             { role: 'Analista Desarrollador AWS', period: '2022 - 2024' },
@@ -81,27 +81,27 @@ const siteData: Record<Lang, SiteData> = {
           role: 'Full-Stack Developer .NET',
           company: 'AYDAI',
           description:
-            'Desarrollo full-stack con stack .NET, integraciones de APIs y mejoras continuas de rendimiento en aplicaciones internas.',
+            'Desarrollo full-stack de aplicaciones internas con .NET. Integre APIs externas y optimice rendimiento, reduciendo los tiempos de carga de los modulos criticos.',
         },
         {
           period: '2018',
           role: 'Front-End Developer',
           company: 'Fourvenues',
           description:
-            'Construccion de interfaces frontend, componentes reutilizables y mejoras de experiencia de usuario en producto web.',
+            'Desarrollo de interfaces para producto web B2B en el sector del ocio nocturno. Mejore la experiencia de usuario y construi componentes reutilizables que acelero el ciclo de desarrollo del equipo.',
         },
       ],
     },
   },
   en: {
     showProjects: true,
-    showContact: false,
+    showContact: true,
     projects: {
       items: [
         {
           title: 'GymTimerPro',
           description:
-            'App for workout timers, with configurable work and rest blocks.',
+            'Identified a real need, defined the product flow, built the app in Swift and shipped it to the App Store. Workout timers with configurable work and rest blocks — from idea to production launch.',
           tech: ['Swift'],
           image: '/images/Projects/GymTimerPro.png',
           imageAlt: 'GymTimerPro preview',
@@ -116,14 +116,14 @@ const siteData: Record<Lang, SiteData> = {
           role: 'Project Manager & Product Engineer',
           company: 'ED AVIATION',
           description:
-            'Product roadmap coordination, delivery planning and technical alignment with business goals.',
+            'Leading the product roadmap and bridging business and engineering teams. Making architecture decisions, prioritizing delivery, and applying AI to optimize internal processes.',
         },
         {
           period: '2022 - 2025',
-          role: 'Full-Stack Developer AWS',
+          role: 'Full-Stack Developer → Tech Lead AWS',
           company: 'VIEWNEXT',
           description:
-            'Technical evolution on AWS platform focused on architecture quality, continuous delivery and team mentoring.',
+            'Grew from developer to backend tech lead. Improved AWS architecture quality, introduced CI/CD practices, and mentored the team to reduce delivery time and raise technical standards.',
           positions: [
             { role: 'Backend Tech Lead AWS', period: '2024 - 2025' },
             { role: 'AWS Developer Analyst', period: '2022 - 2024' },
@@ -134,14 +134,14 @@ const siteData: Record<Lang, SiteData> = {
           role: 'Full-Stack Developer .NET',
           company: 'AYDAI',
           description:
-            'Full-stack development with .NET stack, API integrations and continuous performance improvements on internal applications.',
+            'Full-stack development of internal applications with .NET. Integrated external APIs and optimized performance, reducing load times on critical modules.',
         },
         {
           period: '2018',
           role: 'Front-End Developer',
           company: 'Fourvenues',
           description:
-            'Frontend interface development, reusable components and user experience improvements on web products.',
+            'Built interfaces for a B2B web product in the nightlife industry. Improved UX and created reusable components that accelerated the team\'s development cycle.',
         },
       ],
     },

@@ -1,9 +1,9 @@
 export const ui = {
   es: {
-    'meta.title': 'Alejandro Esteve Maza | Desarrollador Full Stack',
+    'meta.title': 'Alejandro Esteve | Project Manager & Integracion IA · Valencia',
     'meta.description':
-      'Desarrollador Full Stack en Espana. Creo productos web con React, Java, AWS y bases de datos. Proyectos, experiencia y contacto.',
-    'meta.jobTitle': 'Desarrollador Full Stack',
+      'Project Manager con base tecnica profunda, especializado en integracion de IA en producto. Ayudo a empresas a implementar IA de forma estrategica y entregar software con impacto real de negocio.',
+    'meta.jobTitle': 'Project Manager & AI Integration',
 
     'nav.home': 'Inicio',
     'nav.about': 'Sobre mi',
@@ -13,14 +13,14 @@ export const ui = {
 
     'intro.title': 'Hey, soy Alejandro',
     'intro.subtitle':
-      '+7 a&#241;os de experiencia. <strong>Desarrollador y Project Manager</strong> de Valencia, Espa&#241;a <span class="flag-es" role="img" aria-label="Bandera de Espa&#241;a"></span>. Especializado en el desarrollo de productos web orientados a negocio.',
+      '+7 a&#241;os convirtiendo tecnolog&#237;a en resultados de negocio. <strong>Project Manager e integrador de IA</strong> con base t&#233;cnica real. Valencia, Espa&#241;a <span class="flag-es" role="img" aria-label="Bandera de Espa&#241;a"></span>.',
     'intro.cta': 'Disponible para trabajar',
     'intro.contactAction': 'Contactame',
     'intro.skillsTitle': 'Tecnologias',
 
     'about.title': 'Sobre mi',
     'about.body':
-      'Me llamo Alejandro Esteve Maza, desarrollador de software especializado en <strong>soluciones a medida</strong>, automatizacion de procesos e inteligencia artificial. Ayudo a founders no tecnicos y empresas a disenar, construir y automatizar software alineado con <strong>objetivos de negocio</strong> reales, reduciendo friccion, incertidumbre tecnica y sobrecostes.<br /><br />Mi enfoque prioriza <strong>resultados</strong>: sistemas eficientes que generan impacto en el negocio. Tambien trabajo como Project Manager, mejorando la organizacion y <strong>productividad</strong> de equipos de desarrollo para lograr entregas sostenibles. Ademas, desarrollo productos propios y aplico <strong>IA</strong> para llevar cada solucion un paso mas alla.',
+      'Llevo 7 anos en la interseccion entre tecnologia y negocio: empece como desarrollador, escale a lider tecnico y ahora trabajo como <strong>Project Manager con foco en integracion de IA</strong>. Mi ventaja competitiva es hablar los dos idiomas: el del codigo y el del negocio.<br /><br />Ayudo a equipos y empresas a <strong>implementar IA de forma practica</strong>, tomar mejores decisiones de producto y entregar con impacto medible. No solo propongo soluciones: las ejecuto, las lidero y me aseguro de que generen resultados reales. Trabajo con founders no tecnicos, equipos de desarrollo y stakeholders para alinear tecnologia con <strong>objetivos de negocio</strong> concretos.',
 
     'projects.title': 'Proyectos',
     'projects.techLabel': 'Stack utilizado',
@@ -44,10 +44,10 @@ export const ui = {
     'a11y.darkMode': 'Activar modo oscuro',
   },
   en: {
-    'meta.title': 'Alejandro Esteve Maza | Full-Stack Developer',
+    'meta.title': 'Alejandro Esteve | Project Manager & AI Integration · Spain',
     'meta.description':
-      'Full-stack developer in Spain. I build scalable web products with React, Java, AWS, and databases. Projects, experience, and contact.',
-    'meta.jobTitle': 'Full-Stack Developer',
+      'Project Manager with deep technical background, specialized in AI integration for product teams. I help companies implement AI strategically and ship software that drives measurable business outcomes.',
+    'meta.jobTitle': 'Project Manager & AI Integration',
 
     'nav.home': 'Home',
     'nav.about': 'About',
@@ -57,14 +57,14 @@ export const ui = {
 
     'intro.title': "Hey, I'm Alejandro",
     'intro.subtitle':
-      '+7 years of experience. <strong>Developer and Project Manager</strong> from Valencia, Spain <span class="flag-es" role="img" aria-label="Flag of Spain"></span>. Specialized in building business-oriented web products.',
+      '7+ years turning technology into business outcomes. <strong>Project Manager &amp; AI Integration</strong> with a real technical foundation. Valencia, Spain <span class="flag-es" role="img" aria-label="Flag of Spain"></span>.',
     'intro.cta': 'Available for work',
     'intro.contactAction': 'Contact me',
     'intro.skillsTitle': 'Technologies',
 
     'about.title': 'About me',
     'about.body':
-      'My name is Alejandro Esteve Maza, a software developer specialized in <strong>custom solutions</strong>, process automation and artificial intelligence. I help non-technical founders and companies design, build and automate software aligned with real <strong>business goals</strong>, reducing friction, technical uncertainty and cost overruns.<br /><br />My approach prioritizes <strong>results</strong>: efficient systems that generate business impact. I also work as a Project Manager, improving the organization and <strong>productivity</strong> of development teams to achieve sustainable delivery. I also develop my own products and apply <strong>AI</strong> to take every solution one step further.',
+      "I've spent 7 years at the intersection of technology and business: I started as a developer, grew into a tech lead, and now work as a <strong>Project Manager focused on AI integration</strong>. My edge is speaking both languages fluently — code and business.<br /><br />I help teams and companies <strong>implement AI in practical ways</strong>, make better product decisions, and deliver with measurable impact. I don't just propose solutions: I execute them, lead them, and make sure they generate real results. I work with non-technical founders, engineering teams, and stakeholders to align technology with concrete <strong>business goals</strong>.",
 
     'projects.title': 'Projects',
     'projects.techLabel': 'Tech used',
